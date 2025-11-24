@@ -7,8 +7,8 @@ signal health_changed(new_health:float)
 @export var health : float = 10.
 @export var max_health : float = 10.
 
-func damage(amount:float):
-	health = max(health-amount, 0)
+func damage(attack:Attack):
+	health = max(health-attack.attack_damage, 0)
 	health_changed.emit(health)
 
 func heal(amount:float):

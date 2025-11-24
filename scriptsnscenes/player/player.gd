@@ -1,26 +1,27 @@
 class_name Player 
 extends CharacterBody3D
 
-@export_category("Player")
+@export_group("Movement")
 @export_range(1, 35, 1) var speed: float = 10 # m/s
 @export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
 
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 1 # m
 @export_range(0.1, 3.0, 0.1, "or_greater") var camera_sens: float = 3.
+@onready var camera: Camera3D = $Camera
+@export_group("Shooting")
+@export var damage : float = 1.0
 
 var jumping: bool = false
 var mouse_captured: bool = false
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var move_dir: Vector2 # Input direction for movement
-var look_dir: Vector2 # Input direction for look/aim
+var move_dir: Vector2
+var look_dir: Vector2
 
-var walk_vel: Vector3 # Walking velocity 
-var grav_vel: Vector3 # Gravity velocity 
-var jump_vel: Vector3 # Jumping velocity
-
-@onready var camera: Camera3D = $Camera
+var walk_vel: Vector3 
+var grav_vel: Vector3 
+var jump_vel: Vector3
 
 func _ready() -> void:
 	capture_mouse()
@@ -48,7 +49,6 @@ func _rotate_camera(sens_mod: float = 1.0) -> void:
 	camera.rotation.y -= look_dir.x * camera_sens * sens_mod
 	camera.rotation.x = clamp(camera.rotation.x - look_dir.y * camera_sens * sens_mod, -1.5, 1.5)
 
-
 func _walk(delta: float) -> Vector3:
 	move_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var _forward: Vector3 = camera.global_transform.basis * Vector3(move_dir.x, 0, move_dir.y)
@@ -67,3 +67,15 @@ func _jump(delta: float) -> Vector3:
 		return jump_vel
 	jump_vel = Vector3.ZERO if is_on_floor() else jump_vel.move_toward(Vector3.ZERO, gravity * delta)
 	return jump_vel
+
+func _damage(target:Node):
+	var health_comp : HealthComponent
+	for child in target.get_children():
+		if child is HealthComponent:
+			health_comp = child
+			break
+	if not health_comp: 
+		push_error("No health comp found in Player.gd")
+		return 
+	health_comp.damage(Attack.new(damage))
+	
