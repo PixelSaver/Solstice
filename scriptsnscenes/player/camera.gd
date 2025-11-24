@@ -6,4 +6,4 @@ extends Camera3D
 
 func _process(_delta: float) -> void:
 	if raycast.is_colliding():
-		gun_marker.look_at(raycast.get_collision_point())
+		gun_marker.look_at(raycast.get_collision_point(), Vector3.UP, false)
