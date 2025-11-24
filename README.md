@@ -23,7 +23,7 @@
 Siege W13. Unlucky number, but the theme being Winter is amazing. Still, brainstorming was hard.
 
 ### What even is this?
-
+You're in a cabin, staring out into the winter day. Pick up a few calls, and watch the sun set. It's the winter solstice, and there's a long night ahead. Stay awake, stay alert, and make it past... the Solstice.
 
 ### What do I take out of this?
 
@@ -80,7 +80,20 @@ If you're stuck, I have left a list of hints below to help you out :)
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ]  
+- [ ] Open and close the window
+  - [ ] Window model and animations
+  - [ ] Add two windows to manage them
+- [ ] Pick up calls
+  - [ ] Dialogue and options for calls
+- [ ] Winter environment
+  - [ ] Day / Sunset / Night atmosphere
+  - [ ] Trees and fog and snowstorm
+- [ ] Gun 
+  - [ ] Shoot anim sounds crosshair
+  - [ ] Low poly model
+  - [ ] Add a low battery flashlight to illuminate but have it run out of battery
+- [ ] Enemies show up and creep closer
+  - [ ] Model or just a pair of eyes if no time 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
