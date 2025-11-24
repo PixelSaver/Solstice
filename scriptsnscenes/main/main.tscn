@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2b3opnb7irxa"]
+
+[ext_resource type="Material" uid="uid://cva4n4uk5xj3a" path="res://assets/materials/snow.tres" id="1_ofk34"]
+[ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://scriptsnscenes/player/player.tscn" id="2_ofk34"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uh2b8"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_uu8of"]
+sky_material = SubResource("ProceduralSkyMaterial_uh2b8")
+
+[sub_resource type="Environment" id="Environment_pme2s"]
+background_mode = 2
+sky = SubResource("Sky_uu8of")
+tonemap_mode = 2
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5tbie"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_fxlo8"]
+size = Vector2(10, 10)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pme2s")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_5tbie")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+material_override = ExtResource("1_ofk34")
+mesh = SubResource("QuadMesh_fxlo8")
+
+[node name="Player" parent="." instance=ExtResource("2_ofk34")]
