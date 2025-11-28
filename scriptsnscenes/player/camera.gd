@@ -11,7 +11,8 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("l_click"): 
-		#player._damage()
+		if raycast.is_colliding(): 
+			player._damage(raycast.get_collider())
 		pass
 	if Input.is_action_just_pressed("r_click"): 
 		pass

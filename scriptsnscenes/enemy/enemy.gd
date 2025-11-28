@@ -1,11 +1,14 @@
 extends RigidBody3D
 class_name Enemy
 
+var health_component : HealthComponent
 var movement_points : EnemyMovementPoints
 var move_idx : int = 0
 var points : Array[Marker3D]
 
 func _ready() -> void:
+	health_component = get_tree().get_first_node_in_group("health_component") 
+	health_component.died.connect(_on_death)
 	#DEBUG
 	await get_tree().create_timer(1).timeout
 	move_to_next_point()
@@ -26,3 +29,6 @@ func move_to_next_point():
 func _update_pos():
 	if move_idx < points.size():
 		self.global_position = points[move_idx].global_position
+
+func _on_death():
+	queue_free()

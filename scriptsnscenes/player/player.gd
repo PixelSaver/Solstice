@@ -75,7 +75,7 @@ func _damage(target:Node):
 			health_comp = child
 			break
 	if not health_comp: 
-		push_error("No health comp found in Player.gd")
+		print("No health comp found in Player.gd")
 		return 
 	health_comp.damage(Attack.new(damage))
 	

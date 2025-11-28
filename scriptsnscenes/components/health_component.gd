@@ -10,6 +10,9 @@ signal health_changed(new_health:float)
 func damage(attack:Attack):
 	health = max(health-attack.attack_damage, 0)
 	health_changed.emit(health)
+	if health == 0:
+		died.emit()
+	print("damaged, health is %s" % health)
 
 func heal(amount:float):
 	health = min(health+amount, max_health)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cdk6hwb4hi2wc"]
 
-[ext_resource type="Script" uid="uid://caoxvdkgf16i3" path="res://scriptsnscenes/Player/player.gd" id="1_2f8j2"]
+[ext_resource type="Script" uid="uid://caoxvdkgf16i3" path="res://scriptsnscenes/player/player.gd" id="1_2f8j2"]
 [ext_resource type="Script" uid="uid://bpd70n6phuypx" path="res://scriptsnscenes/player/camera.gd" id="2_c072m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3rsb5"]
@@ -12,7 +12,11 @@ size = Vector3(0.15, 0.15, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_2f8j2")
+speed = null
+acceleration = null
+jump_height = null
 camera_sens = 5.0
+damage = null
 
 [node name="CShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -27,7 +31,7 @@ gun_marker = NodePath("Marker3D")
 gun = NodePath("Marker3D/MeshInstance3D")
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera"]
-target_position = Vector3(0, 0, -10)
+target_position = Vector3(0, 0, -30)
 
 [node name="Marker3D" type="Marker3D" parent="Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.58578, -0.45000005, -0.6030617)

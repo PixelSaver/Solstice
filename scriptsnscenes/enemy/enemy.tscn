@@ -18,6 +18,8 @@ shape = SubResource("BoxShape3D_jbp2j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559022e-10, 0.5, -3.0559022e-10)
 mesh = SubResource("BoxMesh_i43sd")
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="HealthComponent" type="Node" parent="." groups=["health_component"]]
 script = ExtResource("2_jbp2j")
+health = 2.999999999999991
+max_health = 2.999999999999991
 metadata/_custom_type_script = "uid://ytdy4c4eacl0"
