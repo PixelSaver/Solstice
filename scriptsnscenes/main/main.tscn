@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://c2b3opnb7irxa"]
+[gd_scene load_steps=12 format=4 uid="uid://c2b3opnb7irxa"]
 
+[ext_resource type="Script" uid="uid://dyjh460qkvb3i" path="res://scriptsnscenes/enemy/enemy_movement_points.gd" id="1_kxkkf"]
 [ext_resource type="Material" uid="uid://cva4n4uk5xj3a" path="res://assets/materials/snow.tres" id="1_ofk34"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://scriptsnscenes/player/player.tscn" id="2_ofk34"]
+[ext_resource type="Script" uid="uid://d23nb0n8e2sul" path="res://scriptsnscenes/enemy/enemy_manager.gd" id="4_uh2b8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uh2b8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -36,6 +38,19 @@ _surfaces = [{
 
 [node name="Main" type="Node3D"]
 
+[node name="EnemyMovementPoints" type="Node3D" parent="."]
+script = ExtResource("1_kxkkf")
+metadata/_custom_type_script = "uid://dyjh460qkvb3i"
+
+[node name="1" type="Marker3D" parent="EnemyMovementPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.666048, 0, -20.545444)
+
+[node name="2" type="Marker3D" parent="EnemyMovementPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0121517, 0, -16.08806)
+
+[node name="3" type="Marker3D" parent="EnemyMovementPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1249886, 0, -11.301752)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pme2s")
 
@@ -43,12 +58,12 @@ environment = SubResource("Environment_pme2s")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape3D_5tbie")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 material_override = ExtResource("1_ofk34")
 mesh = SubResource("QuadMesh_fxlo8")
@@ -101,3 +116,6 @@ shape = SubResource("ConcavePolygonShape3D_ofk34")
 
 [node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
 mesh = SubResource("ArrayMesh_kxkkf")
+
+[node name="EnemyManager" type="Node3D" parent="."]
+script = ExtResource("4_uh2b8")

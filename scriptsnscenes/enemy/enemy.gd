@@ -1,2 +1,28 @@
 extends RigidBody3D
 class_name Enemy
+
+var movement_points : EnemyMovementPoints
+var move_idx : int = 0
+var points : Array[Marker3D]
+
+func _ready() -> void:
+	#DEBUG
+	await get_tree().create_timer(1).timeout
+	move_to_next_point()
+	await get_tree().create_timer(1).timeout
+	move_to_next_point()
+	await get_tree().create_timer(1).timeout
+	move_to_next_point()
+
+func set_movement_points(given_movement_points:EnemyMovementPoints):
+	movement_points = given_movement_points
+	points = given_movement_points.points_list
+	_update_pos()
+
+func move_to_next_point():
+	move_idx += 1
+	_update_pos()
+
+func _update_pos():
+	if move_idx < points.size():
+		self.global_position = points[move_idx].global_position

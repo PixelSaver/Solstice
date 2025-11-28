@@ -12,11 +12,7 @@ size = Vector3(0.15, 0.15, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_2f8j2")
-speed = null
-acceleration = null
-jump_height = null
 camera_sens = 5.0
-damage = null
 
 [node name="CShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
