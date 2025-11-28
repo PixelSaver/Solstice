@@ -121,7 +121,11 @@ Project Link: [https://github.com/PixelSaver/Just-U-and-I](https://github.com/Pi
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Many thanks for these people for letting me use their work for free! 
+Many thanks for these people for letting me use their work for free!
+
+* "Scandinavian Log Cabin" (https://skfb.ly/pBJuN) by rivetech is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+ 
 <!--
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
