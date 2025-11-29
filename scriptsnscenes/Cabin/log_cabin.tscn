@@ -624,7 +624,8 @@ skeleton = NodePath("")
 [node name="Cabin_Window_Glass_4" type="Node3D" parent="Cabin_5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71233326, 1.8771259, 2.5929692)
 
-[node name="Object_20" type="MeshInstance3D" parent="Cabin_5/Cabin_Window_Glass_4"]
+[node name="Glass" type="MeshInstance3D" parent="Cabin_5/Cabin_Window_Glass_4"]
+visible = false
 mesh = SubResource("ArrayMesh_b6v01")
 skeleton = NodePath("")
 

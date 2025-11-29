@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2b3opnb7irxa"]
+[gd_scene load_steps=11 format=3 uid="uid://c2b3opnb7irxa"]
 
 [ext_resource type="Script" uid="uid://dyjh460qkvb3i" path="res://scriptsnscenes/enemy/enemy_movement_points.gd" id="1_kxkkf"]
 [ext_resource type="Material" uid="uid://cva4n4uk5xj3a" path="res://assets/materials/snow.tres" id="1_ofk34"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://scriptsnscenes/player/player.tscn" id="2_ofk34"]
+[ext_resource type="Script" uid="uid://ctg2wfn45paa3" path="res://scriptsnscenes/ui/ui.gd" id="3_5tbie"]
 [ext_resource type="Script" uid="uid://d23nb0n8e2sul" path="res://scriptsnscenes/enemy/enemy_manager.gd" id="4_uh2b8"]
 [ext_resource type="PackedScene" uid="uid://cwtv3wassxet1" path="res://scriptsnscenes/Cabin/log_cabin.tscn" id="4_uu8of"]
 [ext_resource type="PackedScene" uid="uid://biu3fpf8ilpt3" path="res://scriptsnscenes/forest/forest.tscn" id="6_5tbie"]
@@ -60,7 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="UI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("time_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,8 +69,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("3_5tbie")
+time_label = NodePath("TimeLabel")
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -78,11 +81,20 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/CenterContainer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/UI/CenterContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0.50980395)
+
+[node name="TimeLabel" type="RichTextLabel" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_right = 648.0
+offset_bottom = 122.0
+bbcode_enabled = true
+text = "Time survived: 1239081"
+fit_content = true
+scroll_active = false
 
 [node name="EnemyManager" type="Node3D" parent="."]
 script = ExtResource("4_uh2b8")
