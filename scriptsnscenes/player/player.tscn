@@ -11,6 +11,7 @@ size = Vector3(0.15, 0.15, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rd6mq"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 5
 script = ExtResource("1_2f8j2")
 speed = null
 acceleration = null
@@ -24,6 +25,7 @@ shape = SubResource("CapsuleShape3D_3rsb5")
 
 [node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("raycast", "gun_marker", "gun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+current = true
 fov = 40.0
 script = ExtResource("2_c072m")
 raycast = NodePath("RayCast3D")
