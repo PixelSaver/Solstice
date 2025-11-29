@@ -66,10 +66,6 @@ sky_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("2_ofk34")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-speed = 10.0
-acceleration = 100.0
-jump_height = 1.0
-damage = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -148,6 +144,10 @@ metadata/_custom_type_script = "uid://dfmdlwq3gn3pv"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.3527613e-08, 0.7692308)
 shape = SubResource("BoxShape3D_xx665")
 
+[node name="Camera3D" type="Camera3D" parent="World/LogCabin/Left"]
+transform = Transform3D(0, 1.3664284e-14, 0.7692308, 0.7692308, -6.724828e-08, 1.1945694e-21, 6.724828e-08, 0.7692308, -1.3664284e-14, 0.5604286, 0.027772084, 1.355962)
+fov = 40.0
+
 [node name="Right" type="Area3D" parent="World/LogCabin" groups=["camera_area"]]
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, -1, -4.3711385e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, 1, -1.1470003, 2.6301677, 1.1920929e-07)
 collision_layer = 16
@@ -161,5 +161,10 @@ metadata/_custom_type_script = "uid://dfmdlwq3gn3pv"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7692308)
 shape = SubResource("BoxShape3D_680ke")
 
+[node name="Camera3D" type="Camera3D" parent="World/LogCabin/Right"]
+transform = Transform3D(0, 1.3664284e-14, 0.7692308, 0.7692308, -6.724828e-08, 0, 6.724828e-08, 0.7692308, -1.2194525e-14, 0.63915396, -0.037204742, 1.3559622)
+fov = 40.0
+
 [node name="CameraManager" type="Node3D" parent="."]
 script = ExtResource("8_fxlo8")
+rot_margin = 0.4999999999999985
