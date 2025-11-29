@@ -1,3 +1,104 @@
-[gd_scene format=3 uid="uid://biu3fpf8ilpt3"]
+[gd_scene load_steps=26 format=3 uid="uid://biu3fpf8ilpt3"]
+
+[ext_resource type="PackedScene" uid="uid://bfs4314h0i2hx" path="res://scriptsnscenes/forest/tree.tscn" id="1_ane08"]
+[ext_resource type="Script" uid="uid://bmyv7l36uix6f" path="res://addons/proton_scatter/src/scatter.gd" id="2_vbkwr"]
+[ext_resource type="Script" uid="uid://been5ju7qgm3x" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="3_fm2wu"]
+[ext_resource type="Script" uid="uid://dfcogoipy5ass" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="4_8g0kc"]
+[ext_resource type="Script" uid="uid://ddqi1podbomn0" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="5_lku2i"]
+[ext_resource type="Script" uid="uid://cs2g43evkb4ow" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="6_3qrjx"]
+[ext_resource type="Script" uid="uid://nbwvjr8ms1t2" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="7_u63gb"]
+[ext_resource type="Script" uid="uid://du4p1q27mg4ly" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="8_ndfj0"]
+[ext_resource type="Script" uid="uid://btqo3ndm1ghuc" path="res://addons/proton_scatter/src/modifiers/offset_rotation.gd" id="9_s0oan"]
+[ext_resource type="Script" uid="uid://bktbiimi8dah1" path="res://addons/proton_scatter/src/modifiers/offset_scale.gd" id="10_vwhsh"]
+[ext_resource type="Script" uid="uid://bqduaydmt02is" path="res://addons/proton_scatter/src/modifiers/offset_position.gd" id="11_qw471"]
+[ext_resource type="Script" uid="uid://ddvbs30gxipjx" path="res://addons/proton_scatter/src/scatter_item.gd" id="12_3w8m0"]
+[ext_resource type="Script" uid="uid://wb7ioruklg25" path="res://addons/proton_scatter/src/scatter_shape.gd" id="13_jc53b"]
+[ext_resource type="Script" uid="uid://csujxnfh3ddc6" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="14_lqb0x"]
+[ext_resource type="PackedScene" uid="uid://cwtv3wassxet1" path="res://scriptsnscenes/Cabin/log_cabin.tscn" id="15_nvdqu"]
+
+[sub_resource type="Resource" id="Resource_fqmmk"]
+script = ExtResource("5_lku2i")
+amount = 70
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_xvqek"]
+script = ExtResource("6_3qrjx")
+position = Vector3(0, 0.15, 0)
+scale = Vector3(2, 2, 2)
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_1krfu"]
+script = ExtResource("7_u63gb")
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+restrict_height = true
+
+[sub_resource type="Resource" id="Resource_ovegw"]
+script = ExtResource("8_ndfj0")
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+
+[sub_resource type="Resource" id="Resource_whjd0"]
+script = ExtResource("9_s0oan")
+rotation = Vector3(-90, 0, 0)
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_78w1l"]
+script = ExtResource("10_vwhsh")
+scale = Vector3(0.4, 0.4, 0.4)
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_xavop"]
+script = ExtResource("11_qw471")
+position = Vector3(-27, 0.45, 15)
+
+[sub_resource type="Resource" id="Resource_hqdlu"]
+script = ExtResource("3_fm2wu")
+stack = Array[ExtResource("4_8g0kc")]([SubResource("Resource_fqmmk"), SubResource("Resource_xvqek"), SubResource("Resource_1krfu"), SubResource("Resource_ovegw"), SubResource("Resource_whjd0"), SubResource("Resource_78w1l"), SubResource("Resource_xavop")])
+
+[sub_resource type="Resource" id="Resource_k3hfk"]
+script = ExtResource("14_lqb0x")
+radius = 49.99999999999985
+metadata/_custom_type_script = "uid://csujxnfh3ddc6"
+
+[sub_resource type="Resource" id="Resource_28c4p"]
+script = ExtResource("14_lqb0x")
+radius = 14.999999999999956
+metadata/_custom_type_script = "uid://csujxnfh3ddc6"
 
 [node name="Forest" type="Node3D"]
+
+[node name="Tree" parent="." instance=ExtResource("1_ane08")]
+visible = false
+
+[node name="ProtonScatter" type="Node3D" parent="."]
+script = ExtResource("2_vbkwr")
+global_seed = 307
+modifier_stack = SubResource("Resource_hqdlu")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+metadata/_custom_type_script = "uid://bmyv7l36uix6f"
+
+[node name="ScatterItem" type="Node3D" parent="ProtonScatter"]
+transform = Transform3D(0.96835, 0, 0, 0, 0.96835, 0, 0, 0, 0.96835, 0, 0, 0)
+script = ExtResource("12_3w8m0")
+source = 0
+source_ignore_scale = false
+path = "../../Tree/Object_3"
+
+[node name="ScatterShape" type="Node3D" parent="ProtonScatter"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -3.0559022e-10, 0, -3.0559022e-10)
+script = ExtResource("13_jc53b")
+shape = SubResource("Resource_k3hfk")
+
+[node name="ScatterShape2" type="Node3D" parent="ProtonScatter"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -3.0559022e-10, 0, -3.0559022e-10)
+script = ExtResource("13_jc53b")
+negative = true
+shape = SubResource("Resource_28c4p")
+
+[node name="LogCabin" parent="." instance=ExtResource("15_nvdqu")]
+
+[editable path="Tree"]
