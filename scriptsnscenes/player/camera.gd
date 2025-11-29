@@ -23,11 +23,11 @@ func _on_hit():
 	if not raycast.is_colliding(): return
 	player._damage(raycast.get_collider())
 	var inst = SPARKS.instantiate() as CPUParticles3D
+	get_tree().current_scene.add_child(inst)
 	inst.global_position = raycast.get_collision_point()
 	inst.emitting = true
 	var normal = raycast.get_collision_normal()
 	inst.look_at(inst.global_position + normal, Vector3.UP)
-	get_tree().current_scene.add_child(inst)
 
 
 func _process(_delta: float) -> void:
