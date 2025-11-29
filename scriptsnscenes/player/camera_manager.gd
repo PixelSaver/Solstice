@@ -7,6 +7,7 @@ var og_fov : float
 var target_cam : Camera3D = null
 var cam_areas : Array
 @export var speed_mult : float = 1.
+@export var exit_speed_mult : float = 5.
 @export var rot_margin : float = 1.
 
 func _ready() -> void:
@@ -48,8 +49,7 @@ func _process(delta: float) -> void:
 			player_cam.global_rotation.y, 
 			target_cam.global_rotation.y - rot_margin, target_cam.global_rotation.y + rot_margin
 			)
-		print("player cam rot x: %s" % player_cam.global_rotation.y)
 	else: 
 		player_cam.top_level = false
 		player_cam.position = lerp(player_cam.position, og_pos, delta * speed_mult)
-		player_cam.fov = lerp(player_cam.fov, og_fov, delta * speed_mult)
+		player_cam.fov = lerp(player_cam.fov, og_fov, delta * exit_speed_mult)

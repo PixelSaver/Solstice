@@ -13,19 +13,21 @@
 [sub_resource type="Environment" id="Environment_pme2s"]
 background_mode = 1
 background_color = Color(0.03199922, 0.06750116, 0.17415461, 1)
-background_energy_multiplier = 0.03
+background_energy_multiplier = 1.01
 ambient_light_source = 3
 ambient_light_color = Color(0.009092285, 0.021002723, 0.08092172, 1)
-ambient_light_sky_contribution = 0.17
-ambient_light_energy = 4.4
+ambient_light_sky_contribution = 0.08
+ambient_light_energy = 10.34
 tonemap_mode = 2
+glow_enabled = true
 glow_bloom = 0.05
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.039215688, 0.050980393, 0.078431375, 1)
-fog_light_energy = 0.19
+fog_light_energy = 2.51
 fog_density = 1.0
-fog_depth_curve = 0.39229223
+fog_depth_curve = 0.4829682
+fog_depth_begin = 0.0
 fog_depth_end = 45.0
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5tbie"]
@@ -120,6 +122,7 @@ material_override = ExtResource("1_ofk34")
 mesh = SubResource("QuadMesh_fxlo8")
 
 [node name="Forest" parent="World" instance=ExtResource("6_5tbie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.06271, 0, 0)
 
 [node name="LogCabin" parent="World" instance=ExtResource("4_uu8of")]
 transform = Transform3D(1.3, 0, 0, 0, -5.6824803e-08, 1.3, 0, -1.3, -5.6824803e-08, 0, 1, 0)
@@ -167,4 +170,5 @@ fov = 40.0
 
 [node name="CameraManager" type="Node3D" parent="."]
 script = ExtResource("8_fxlo8")
+speed_mult = 2.999999999999991
 rot_margin = 0.4999999999999985

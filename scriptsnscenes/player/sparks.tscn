@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7lor67ljfeg8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxnrx"]
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(0.89519894, 0.81337786, 0, 1)
+emission_energy_multiplier = 3.25
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_xg676"]
+material = SubResource("StandardMaterial3D_nxnrx")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Curve" id="Curve_glgjw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.34508818, 1), 0.0, 0.0, 0, 0, Vector2(0.9974811, 0), 0.3256326, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_4dxan"]
+offsets = PackedFloat32Array(0, 0.14142857, 0.39, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.8, 0.2, 1, 1, 0.4, 0, 1, 1, 0.4, 0, 0)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nxnrx"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_xg676"]
+sky_material = SubResource("ProceduralSkyMaterial_nxnrx")
+
+[sub_resource type="Environment" id="Environment_glgjw"]
+background_mode = 2
+sky = SubResource("Sky_xg676")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="CPUParticles3D" type="CPUParticles3D"]
+emitting = false
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.7
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_xg676")
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+radial_accel_min = 1.0
+radial_accel_max = 1.0
+tangential_accel_max = 1.0
+damping_min = 1.234
+damping_max = 3.086
+angle_min = -217.8
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_glgjw")
+color = Color(0.8686872, 0.7113507, 1.1551381e-06, 1)
+color_ramp = SubResource("Gradient_4dxan")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_glgjw")
