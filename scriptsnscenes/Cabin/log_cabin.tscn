@@ -637,3 +637,5 @@ mesh = SubResource("PlaneMesh_55li3")
 transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 3.8596983, 0.11825919, -2.7161877)
 material_override = ExtResource("22_uihxu")
 mesh = SubResource("PlaneMesh_55li3")
+
+[node name="Lights" type="Node3D" parent="."]

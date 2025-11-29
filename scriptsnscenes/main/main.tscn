@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2b3opnb7irxa"]
+[gd_scene load_steps=13 format=3 uid="uid://c2b3opnb7irxa"]
 
 [ext_resource type="Script" uid="uid://dyjh460qkvb3i" path="res://scriptsnscenes/enemy/enemy_movement_points.gd" id="1_kxkkf"]
 [ext_resource type="Material" uid="uid://cva4n4uk5xj3a" path="res://assets/materials/snow.tres" id="1_ofk34"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://scriptsnscenes/player/player.tscn" id="2_ofk34"]
 [ext_resource type="Script" uid="uid://d23nb0n8e2sul" path="res://scriptsnscenes/enemy/enemy_manager.gd" id="4_uh2b8"]
 [ext_resource type="PackedScene" uid="uid://cwtv3wassxet1" path="res://scriptsnscenes/Cabin/log_cabin.tscn" id="4_uu8of"]
+[ext_resource type="PackedScene" uid="uid://biu3fpf8ilpt3" path="res://scriptsnscenes/forest/forest.tscn" id="6_5tbie"]
+[ext_resource type="PackedScene" uid="uid://bfs4314h0i2hx" path="res://scriptsnscenes/forest/tree.tscn" id="7_fxlo8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uh2b8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -14,9 +16,18 @@ ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 sky_material = SubResource("ProceduralSkyMaterial_uh2b8")
 
 [sub_resource type="Environment" id="Environment_pme2s"]
-background_mode = 2
+background_mode = 1
 sky = SubResource("Sky_uu8of")
+ambient_light_sky_contribution = 0.92
 tonemap_mode = 2
+glow_bloom = 0.05
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.22094399, 0.24569333, 0.28031668, 1)
+fog_density = 1.0
+fog_depth_curve = 9.189583
+fog_depth_begin = 10.3
+fog_depth_end = 45.0
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5tbie"]
 
@@ -43,7 +54,9 @@ environment = SubResource("Environment_pme2s")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.79778713, 0.88575506, 0.91947764, 1)
 shadow_enabled = true
+sky_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("2_ofk34")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -91,3 +104,9 @@ shape = SubResource("WorldBoundaryShape3D_5tbie")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 material_override = ExtResource("1_ofk34")
 mesh = SubResource("QuadMesh_fxlo8")
+
+[node name="Forest" parent="World" instance=ExtResource("6_5tbie")]
+
+[node name="Tree" parent="World" instance=ExtResource("7_fxlo8")]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, -2.5652847, 1.9073486e-06, -22.039112)
+visible = false
