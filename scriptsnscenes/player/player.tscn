@@ -24,7 +24,7 @@ shape = SubResource("CapsuleShape3D_3rsb5")
 
 [node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("raycast", "gun_marker", "gun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
-fov = 80.0
+fov = 60.0
 script = ExtResource("2_c072m")
 raycast = NodePath("RayCast3D")
 gun_marker = NodePath("Marker3D")
@@ -34,8 +34,15 @@ gun = NodePath("Marker3D/MeshInstance3D")
 target_position = Vector3(0, 0, -30)
 collision_mask = 9
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera/RayCast3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.62064224)
+light_color = Color(0.8716022, 0.81268483, 3.85046e-07, 1)
+spot_range = 50.0
+spot_angle = 15.83
+spot_angle_attenuation = 5.856342
+
 [node name="Marker3D" type="Marker3D" parent="Camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.58578, -0.45000005, -0.6030617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.58578, -0.45, -0.65081)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera/Marker3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.22143656)

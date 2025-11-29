@@ -643,3 +643,4 @@ mesh = SubResource("PlaneMesh_55li3")
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8248678e-16, 1.7225673)
 light_color = Color(0.99999994, 0.9790217, 0.32257834, 1)
+omni_range = 3.16
