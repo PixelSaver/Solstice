@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://biu3fpf8ilpt3"]
+[gd_scene load_steps=45 format=4 uid="uid://biu3fpf8ilpt3"]
 
 [ext_resource type="Script" uid="uid://bmyv7l36uix6f" path="res://addons/proton_scatter/src/scatter.gd" id="2_vbkwr"]
 [ext_resource type="Script" uid="uid://been5ju7qgm3x" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="3_fm2wu"]
@@ -14,15 +14,17 @@
 [ext_resource type="Script" uid="uid://wb7ioruklg25" path="res://addons/proton_scatter/src/scatter_shape.gd" id="13_jc53b"]
 [ext_resource type="Script" uid="uid://csujxnfh3ddc6" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="14_lqb0x"]
 [ext_resource type="Texture2D" uid="uid://beemd8cq76yl8" path="res://assets/models/fir_tree/tree_Material__4_baseColor.png" id="15_ane08"]
+[ext_resource type="PackedScene" uid="uid://bfs4314h0i2hx" path="res://scriptsnscenes/forest/tree.tscn" id="15_vbkwr"]
 
 [sub_resource type="Resource" id="Resource_8eqgs"]
 script = ExtResource("5_lku2i")
 amount = 90
 restrict_height = true
+reference_frame = 1
 
 [sub_resource type="Resource" id="Resource_ane08"]
 script = ExtResource("6_3qrjx")
-scale = Vector3(1, 1, 1)
+scale = Vector3(1.5, 1.5, 1.5)
 reference_frame = 2
 
 [sub_resource type="Resource" id="Resource_vbkwr"]
@@ -43,16 +45,19 @@ enabled = false
 [sub_resource type="Resource" id="Resource_8g0kc"]
 script = ExtResource("9_s0oan")
 rotation = Vector3(-90, 0, 0)
+enabled = false
 reference_frame = 2
 
 [sub_resource type="Resource" id="Resource_lku2i"]
 script = ExtResource("10_vwhsh")
-scale = Vector3(0.4, 0.4, 0.4)
+scale = Vector3(4, 4, 4)
 reference_frame = 2
 
 [sub_resource type="Resource" id="Resource_3qrjx"]
 script = ExtResource("11_qw471")
-position = Vector3(-17, 0, 11)
+position = Vector3(-11, 0, 11)
+enabled = false
+reference_frame = 2
 
 [sub_resource type="Resource" id="Resource_u63gb"]
 script = ExtResource("3_fm2wu")
@@ -210,6 +215,8 @@ visible = false
 script = ExtResource("2_vbkwr")
 enabled = false
 global_seed = 22
+render_mode = 1
+keep_static_colliders = true
 modifier_stack = SubResource("Resource_u63gb")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
@@ -236,6 +243,7 @@ negative = true
 shape = SubResource("Resource_s0oan")
 
 [node name="ScatterOutput" type="Marker3D" parent="."]
+visible = false
 
 [node name="ScatterItem" type="Node3D" parent="ScatterOutput"]
 
@@ -302,3 +310,277 @@ multimesh = SubResource("MultiMesh_lqb0x")
 [node name="MultiMeshInstance3D_3_2_3" type="MultiMeshInstance3D" parent="ScatterOutput/ScatterItem"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.372528, 0, 28.144459)
 multimesh = SubResource("MultiMesh_nvdqu")
+
+[node name="ScatterOutput2" type="Marker3D" parent="."]
+
+[node name="ScatterItem" type="Node3D" parent="ScatterOutput2"]
+
+[node name="Tree" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.63085264, 0, 0, 0, 0.63085264, 0, 0, 0, 0.63085264, 20.069544, 0, -17.914717)
+
+[node name="Tree2" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.36822298, 0, 0, 0, 0.36822298, 0, 0, 0, 0.36822298, 20.121803, 0, -16.287489)
+
+[node name="Tree3" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.65415597, 0, 0, 0, 0.65415597, 0, 0, 0, 0.65415597, -15.093727, 0, 18.10534)
+
+[node name="Tree4" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.45814693, 0, 0, 0, 0.45814693, 0, 0, 0, 0.45814693, 12.595786, 0, 2.0357609)
+
+[node name="Tree5" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.3916241, 0, 0, 0, 0.3916241, 0, 0, 0, 0.3916241, 14.32963, 0, -1.907351)
+
+[node name="Tree6" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.37060714, 0, 0, 0, 0.37060714, 0, 0, 0, 0.37060714, -4.550441, 0, 12.28951)
+
+[node name="Tree7" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.54129666, 0, 0, 0, 0.54129666, 0, 0, 0, 0.54129666, 13.994118, 0, -8.605483)
+
+[node name="Tree8" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.3734984, 0, 0, 0, 0.3734984, 0, 0, 0, 0.3734984, 20.951246, 0, -17.05612)
+
+[node name="Tree9" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.46221393, 0, 0, 0, 0.46221393, 0, 0, 0, 0.46221393, -25.550201, 0, 12.020774)
+
+[node name="Tree10" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.4171397, 0, 0, 0, 0.4171397, 0, 0, 0, 0.4171397, 12.170552, 0, 26.2969)
+
+[node name="Tree11" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.31336713, 0, 0, 0, 0.31336713, 0, 0, 0, 0.31336713, 7.3280916, 0, 16.234789)
+
+[node name="Tree12" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.46658778, 0, 0, 0, 0.46658778, 0, 0, 0, 0.46658778, 15.247707, 0, -18.436481)
+
+[node name="Tree13" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.590041, 0, 0, 0, 0.590041, 0, 0, 0, 0.590041, -17.109911, 0, -3.9694424)
+
+[node name="Tree14" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.6856766, 0, 0, 0, 0.6856766, 0, 0, 0, 0.6856766, 19.323614, 0, -13.426697)
+
+[node name="Tree15" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.60795677, 0, 0, 0, 0.60795677, 0, 0, 0, 0.60795677, -4.901805, 0, 13.251465)
+
+[node name="Tree16" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.576557, 0, 0, 0, 0.576557, 0, 0, 0, 0.576557, -10.40861, 0, -22.317772)
+
+[node name="Tree17" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.4767263, 0, 0, 0, 0.4767263, 0, 0, 0, 0.4767263, -15.982222, 0, -20.312185)
+
+[node name="Tree18" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.36259314, 0, 0, 0, 0.36259314, 0, 0, 0, 0.36259314, -10.824394, 0, 19.645859)
+
+[node name="Tree19" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.51476204, 0, 0, 0, 0.51476204, 0, 0, 0, 0.51476204, 27.833447, 0, -3.344602)
+
+[node name="Tree20" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.51093906, 0, 0, 0, 0.51093906, 0, 0, 0, 0.51093906, -18.10244, 0, 14.686503)
+
+[node name="Tree21" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.30997473, 0, 0, 0, 0.30997473, 0, 0, 0, 0.30997473, 14.291568, 0, -15.933174)
+
+[node name="Tree22" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.69008845, 0, 0, 0, 0.69008845, 0, 0, 0, 0.69008845, 21.98189, 0, 19.302586)
+
+[node name="Tree23" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.66731405, 0, 0, 0, 0.66731405, 0, 0, 0, 0.66731405, 21.676712, 0, -11.801728)
+
+[node name="Tree24" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.3301038, 0, 0, 0, 0.3301038, 0, 0, 0, 0.3301038, 9.796868, 0, 16.850967)
+
+[node name="Tree25" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.64764905, 0, 0, 0, 0.64764905, 0, 0, 0, 0.64764905, 19.131363, 0, 10.680717)
+
+[node name="Tree26" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.59176934, 0, 0, 0, 0.59176934, 0, 0, 0, 0.59176934, 12.36528, 0, -21.592047)
+
+[node name="Tree27" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.63902515, 0, 0, 0, 0.63902515, 0, 0, 0, 0.63902515, 7.524297, 0, 17.120247)
+
+[node name="Tree28" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.4424226, 0, 0, 0, 0.4424226, 0, 0, 0, 0.4424226, -10.541676, 0, 16.63825)
+
+[node name="Tree29" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.6394088, 0, 0, 0, 0.6394088, 0, 0, 0, 0.6394088, 22.803768, 0, -18.200977)
+
+[node name="Tree30" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.65943104, 0, 0, 0, 0.65943104, 0, 0, 0, 0.65943104, -6.2199426, 0, -23.475899)
+
+[node name="Tree31" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.5070778, 0, 0, 0, 0.5070778, 0, 0, 0, 0.5070778, 3.5374296, 0, -14.8208065)
+
+[node name="Tree32" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.63728946, 0, 0, 0, 0.63728946, 0, 0, 0, 0.63728946, -26.251438, 0, 3.0056727)
+
+[node name="Tree33" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.46031514, 0, 0, 0, 0.46031514, 0, 0, 0, 0.46031514, 0.49580812, 0, -22.025202)
+
+[node name="Tree34" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.4793902, 0, 0, 0, 0.4793902, 0, 0, 0, 0.4793902, 2.0882642, 0, -25.717896)
+
+[node name="Tree35" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.5720907, 0, 0, 0, 0.5720907, 0, 0, 0, 0.5720907, -27.74801, 0, -2.2388096)
+
+[node name="Tree36" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.65004563, 0, 0, 0, 0.65004563, 0, 0, 0, 0.65004563, -10.663179, 0, 13.717693)
+
+[node name="Tree37" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.34004116, 0, 0, 0, 0.34004116, 0, 0, 0, 0.34004116, 15.420002, 0, -23.36164)
+
+[node name="Tree38" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.55361414, 0, 0, 0, 0.55361414, 0, 0, 0, 0.55361414, -7.7177505, 0, -22.842312)
+
+[node name="Tree39" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.5620365, 0, 0, 0, 0.5620365, 0, 0, 0, 0.5620365, -1.8158448, 0, 15.19618)
+
+[node name="Tree40" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.43009344, 0, 0, 0, 0.43009344, 0, 0, 0, 0.43009344, -7.936839, 0, 11.648401)
+
+[node name="Tree41" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.30432066, 0, 0, 0, 0.30432066, 0, 0, 0, 0.30432066, 22.521297, 0, -19.50408)
+
+[node name="Tree42" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.29170415, 0, 0, 0, 0.29170415, 0, 0, 0, 0.29170415, -17.536814, 0, 9.896643)
+
+[node name="Tree43" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.48801565, 0, 0, 0, 0.48801565, 0, 0, 0, 0.48801565, 25.293621, 0, -12.491312)
+
+[node name="Tree44" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.6440177, 0, 0, 0, 0.6440177, 0, 0, 0, 0.6440177, 13.531662, 0, 4.0867496)
+
+[node name="Tree45" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.43107682, 0, 0, 0, 0.43107682, 0, 0, 0, 0.43107682, 16.763166, 0, 21.289305)
+
+[node name="Tree46" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.6533072, 0, 0, 0, 0.6533072, 0, 0, 0, 0.6533072, -6.7967696, 0, 14.017224)
+
+[node name="Tree47" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.6370878, 0, 0, 0, 0.6370878, 0, 0, 0, 0.6370878, 7.734336, 0, -23.462614)
+
+[node name="Tree48" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.5809973, 0, 0, 0, 0.5809973, 0, 0, 0, 0.5809973, 7.928388, 0, 25.76898)
+
+[node name="Tree49" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.3356925, 0, 0, 0, 0.3356925, 0, 0, 0, 0.3356925, 5.0635567, 0, 25.42801)
+
+[node name="Tree50" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.5206716, 0, 0, 0, 0.5206716, 0, 0, 0, 0.5206716, 2.4396873, 0, 14.596034)
+
+[node name="Tree51" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.64234984, 0, 0, 0, 0.64234984, 0, 0, 0, 0.64234984, 17.673716, 0, -4.240692)
+
+[node name="Tree52" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.46366423, 0, 0, 0, 0.46366423, 0, 0, 0, 0.46366423, 0.90173006, 0, -29.9649)
+
+[node name="Tree53" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.32721755, 0, 0, 0, 0.32721755, 0, 0, 0, 0.32721755, -14.259602, 0, 11.641781)
+
+[node name="Tree54" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.5772041, 0, 0, 0, 0.5772041, 0, 0, 0, 0.5772041, -1.5156859, 0, 22.078653)
+
+[node name="Tree55" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.3532826, 0, 0, 0, 0.3532826, 0, 0, 0, 0.3532826, -1.67669, 0, 13.620293)
+
+[node name="Tree56" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.35370284, 0, 0, 0, 0.35370284, 0, 0, 0, 0.35370284, -0.32643557, 0, 13.102069)
+
+[node name="Tree57" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.6656031, 0, 0, 0, 0.6656031, 0, 0, 0, 0.6656031, 6.8466463, 0, -26.164942)
+
+[node name="Tree58" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.51848745, 0, 0, 0, 0.51848745, 0, 0, 0, 0.51848745, 5.4831038, 0, 22.863665)
+
+[node name="Tree59" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.37938735, 0, 0, 0, 0.37938735, 0, 0, 0, 0.37938735, -26.116432, 0, 6.3014355)
+
+[node name="Tree60" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.48986256, 0, 0, 0, 0.48986256, 0, 0, 0, 0.48986256, -18.269838, 0, 12.630039)
+
+[node name="Tree61" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.5366915, 0, 0, 0, 0.5366915, 0, 0, 0, 0.5366915, -21.422693, 0, -13.587092)
+
+[node name="Tree62" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.47205162, 0, 0, 0, 0.47205162, 0, 0, 0, 0.47205162, 24.012136, 0, -4.757504)
+
+[node name="Tree63" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.68417776, 0, 0, 0, 0.68417776, 0, 0, 0, 0.68417776, -10.16029, 0, -14.583437)
+
+[node name="Tree64" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.30281323, 0, 0, 0, 0.30281323, 0, 0, 0, 0.30281323, 12.175545, 0, -15.596227)
+
+[node name="Tree65" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.3507151, 0, 0, 0, 0.3507151, 0, 0, 0, 0.3507151, -22.591965, 0, -7.1131825)
+
+[node name="Tree66" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.41596943, 0, 0, 0, 0.41596943, 0, 0, 0, 0.41596943, -21.973604, 0, 1.6142607)
+
+[node name="Tree67" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.53776854, 0, 0, 0, 0.53776854, 0, 0, 0, 0.53776854, -8.558082, 0, -26.109491)
+
+[node name="Tree68" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.30466422, 0, 0, 0, 0.30466422, 0, 0, 0, 0.30466422, -10.166021, 0, 26.783884)
+
+[node name="Tree69" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.5093638, 0, 0, 0, 0.5093638, 0, 0, 0, 0.5093638, -0.017849207, 0, -28.327978)
+
+[node name="Tree70" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.30379847, 0, 0, 0, 0.30379847, 0, 0, 0, 0.30379847, -4.6765814, 0, -27.443407)
+
+[node name="Tree71" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.34204444, 0, 0, 0, 0.34204444, 0, 0, 0, 0.34204444, -9.224367, 0, 14.884912)
+
+[node name="Tree72" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.59760046, 0, 0, 0, 0.59760046, 0, 0, 0, 0.59760046, -5.4528074, 0, 25.484177)
+
+[node name="Tree73" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.32359335, 0, 0, 0, 0.32359335, 0, 0, 0, 0.32359335, -11.942956, 0, -8.492037)
+
+[node name="Tree74" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.29747277, 0, 0, 0, 0.29747277, 0, 0, 0, 0.29747277, -28.481323, 0, -8.4176)
+
+[node name="Tree75" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.35343483, 0, 0, 0, 0.35343483, 0, 0, 0, 0.35343483, -8.021816, 0, -19.776371)
+
+[node name="Tree76" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.5085562, 0, 0, 0, 0.5085562, 0, 0, 0, 0.5085562, 23.3296, 0, -11.487886)
+
+[node name="Tree77" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.68023044, 0, 0, 0, 0.68023044, 0, 0, 0, 0.68023044, -12.9413595, 0, 15.26291)
+
+[node name="Tree78" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.61764336, 0, 0, 0, 0.61764336, 0, 0, 0, 0.61764336, -7.491721, 0, -13.3568)
+
+[node name="Tree79" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.5181277, 0, 0, 0, 0.5181277, 0, 0, 0, 0.5181277, -7.2707567, 0, -22.215164)
+
+[node name="Tree80" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.5800318, 0, 0, 0, 0.5800318, 0, 0, 0, 0.5800318, 18.444307, 0, 12.999612)
+
+[node name="Tree81" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.6762959, 0, 0, 0, 0.6762959, 0, 0, 0, 0.6762959, -21.3858, 0, 15.990879)
+
+[node name="Tree82" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.51519555, 0, 0, 0, 0.51519555, 0, 0, 0, 0.51519555, 3.7106073, 0, -17.024725)
+
+[node name="Tree83" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.4353832, 0, 0, 0, 0.4353832, 0, 0, 0, 0.4353832, 17.541025, 0, 14.523997)
+
+[node name="Tree84" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.50277364, 0, 0, 0, 0.50277364, 0, 0, 0, 0.50277364, 8.258825, 0, -15.287983)
+
+[node name="Tree85" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.5753718, 0, 0, 0, 0.5753718, 0, 0, 0, 0.5753718, -17.72107, 0, -21.54866)
+
+[node name="Tree86" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.49697563, 0, 0, 0, 0.49697563, 0, 0, 0, 0.49697563, -3.7622542, 0, 24.3639)
+
+[node name="Tree87" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.42302445, 0, 0, 0, 0.42302445, 0, 0, 0, 0.42302445, -26.553165, 0, -11.453054)
+
+[node name="Tree88" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.30139908, 0, 0, 0, 0.30139908, 0, 0, 0, 0.30139908, 4.302957, 0, -19.79832)
+
+[node name="Tree89" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.41642374, 0, 0, 0, 0.41642374, 0, 0, 0, 0.41642374, -24.02002, 0, 7.5336494)
+
+[node name="Tree90" parent="ScatterOutput2/ScatterItem" instance=ExtResource("15_vbkwr")]
+transform = Transform3D(0.5063871, 0, 0, 0, 0.5063871, 0, 0, 0, 0.5063871, -17.534576, 0, 12.457727)
