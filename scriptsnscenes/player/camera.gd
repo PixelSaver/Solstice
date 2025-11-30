@@ -7,6 +7,9 @@ var curr_dist : float = 100.
 var target_dist : float = -1.
 const MIN_TARGET_DIST : float = 1.5
 var og_marker : Vector3
+
+var can_shoot := true
+
 const SPARKS = preload("uid://b7lor67ljfeg8")
 
 var player : Player
@@ -48,7 +51,6 @@ func _process(delta: float) -> void:
 	if not target_dist < 0:
 		curr_dist = lerp(curr_dist, target_dist, delta * 10) 
 		curr_dist = max(curr_dist, MIN_TARGET_DIST)
-		print("curr dist: %s" % curr_dist)
 	
 	gun_marker.look_at(
 		raycast.global_position - raycast.global_basis.z * curr_dist,

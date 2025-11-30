@@ -125,6 +125,7 @@ Many thanks for these people for letting me use their work for free!
 
 * "Scandinavian Log Cabin" (https://skfb.ly/pBJuN) by rivetech is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 * "The fir - winter and summer" (https://skfb.ly/6zEXR) by LadyIReyna is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/).
+* "Low Poly Mossberg 590" (https://skfb.ly/oYDLJ) by Monnapse is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
  
 <!--
