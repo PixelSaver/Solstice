@@ -34,10 +34,13 @@ func _input(_event: InputEvent) -> void:
 		is_aiming = false
 
 func flash_muzzle():
-	var inst = muzzle_flash.duplicate()
-	add_child(inst)
-	inst.visible = true
-	inst.emitting = true
+	muzzle_flash.emitting = true
+	muzzle_flash.visible = true
+	#var inst = muzzle_flash.duplicate()
+	#add_child(inst)
+	#inst.global_position = muzzle_flash.global_position
+	#inst.visible = true
+	#inst.emitting = true
 
 func _on_hit():
 	if not raycast.is_colliding(): return
