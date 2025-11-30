@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://5u2m38oeam54"]
+[gd_scene load_steps=10 format=4 uid="uid://5u2m38oeam54"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcnaj"]
 resource_name = "MainMetal"
@@ -114,112 +114,25 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ovvwe")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yaak3"]
-resource_name = "Gold"
-cull_mode = 2
-albedo_color = Color(0.8670876, 0.78987557, 0.37713587, 1)
-roughness = 0.87715316
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_txhn4"]
-_surfaces = [{
-"aabb": AABB(-0.95165455, -1.098876, -0.81368446, 1.903309, 2.197752, 0.8983396),
-"format": 34896613377,
-"index_count": 120,
-"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAAFAAEABgAFAAAABAADAAcABAAHAAgABgAJAAUACgAJAAYACAALAAoACgALAAkACAAHAAsACQAMAAUACwANAAkACQANAAwABwAOAAsACwAOAA0ABwAPAA4AAwAPAAcADgAQAA0AAwARAA8AAQARAAMADwASAA4ADgASABAADQAQABMAEwAQABIADQATAAwADwAUABIAEwASABQAEQAUAA8ADAATABUAFQATABQAEQAWABQAFAAWABUAFwAWABEAFwAVABYADAAVABcAAQAXABEABQAMABcABQAXAAEA"),
-"name": "Gold",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("/3+EC///AACEC8FFPw8AAIQLwUX//wAAhAs9uj8PAACECz26//8AAP9/hAs/DwAAevTBRf//AAD/f3r0Pw8AAP9/evT//wAAevTBRT8PAAB69D26//8AAHr0Pbo/DwAA/38AAD8PAAD///8/Pw8AAP///78/DwAA/3///z8PAAD///8/AAAAAAAA/78/DwAA////vwAAAAD/fwAAAAAAAP9///8AAAAAAAD/PwAAAAAAAP+/AAAAAAAA/z8/DwAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_wiru3"]
-resource_name = "gun_Cylinder_Gold_0"
-_surfaces = [{
-"aabb": AABB(-0.95165455, -1.098876, -0.81368446, 1.903309, 2.197752, 0.8983396),
-"attribute_data": PackedByteArray("4FxYY7Rz6Ym0c1hj4FzpifgrxuppVzXWgFPz0/grSu9ZF1hjAEXpiQBFWGNZF+mJtHNYY1qh6YlaoVhjtHPpiYYAWGNZF+mJWRdYY4YA6YkARVhj01vpidNbWGMARemJWqFYYy246YktuFhjWqHpiTu5xUusu5sZO7mbGay7xUtvBE2mhgA11m8E89OGAAukgFNNpvgr9or4K3qPaVcLpG8E89P4K0rv+CvG6oYANdb4K3qPhgALpG8ETab4K/aKgFPz02lXC6SAU02maVc11rq8mxkrv4YAuryGACu/mxm6vNpkK7/FS7q8xUsrv9pkO7mbGay7hgA7uYYArLubGTu52mSsu8VLO7nFS6y72mS6vMVLK7+bGbq8mxkrv8VLd1g11uiDSu9ZrzXWWa8LpHdYC6Tog/aK"),
-"format": 34896613399,
-"index_count": 120,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASgBLAEgASwBMAEgASwBNAEwA"),
-"material": SubResource("StandardMaterial3D_yaak3"),
-"name": "Gold",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 78,
-"vertex_data": PackedByteArray("/3+EC////w6EC8FFPw//DoQLwUX///8O/3+ECz8P/w6ECz26Pw9VVf9///8/D1RV/3969D8PVFUAAP+/Pw9VVXr0Pbr//6oqevTBRT8Pqip69MFF//+qKnr0Pbo/D6oqhAvBRf//qiqECz26Pw+qKoQLPbr//6oqhAvBRT8Pqir/f3r0//9EPXr0Pbo/D0Q9evQ9uv//RD3/f3r0Pw9EPXr0wUX///8O/3+ECz8P/w7/f4QL////Dnr0wUU/D/8OhAs9uv//RD3/f3r0Pw9EPf9/evT//0Q9hAs9uj8PRD0AAP8/Pw8AAAAA/78AAAAAAAD/vz8PAAAAAP8/AAAAAP9/hAs/D1RVAAD/Pz8PVFWEC8FFPw9UVf9/AAA/D1RVevQ9uj8PVVX///8/Pw9VVXr0wUU/D1VV////vz8PVVWEC8FFPw9UVQAA/78/D1VVhAs9uj8PVVUAAP8/Pw9UVXr0wUU/D1VV/38AAD8PVFX/f4QLPw9UVf///z8/D1VV/3969D8PVFX///+/Pw9VVXr0Pbo/D1VV/3///z8PVFX///8/Pw+0Nf9/AAAAALQ1/38AAD8PtDX///8/AAC0Nf9///8/D7Q1////vwAAtDX///+/Pw+0Nf9///8AALQ1AAD/vz8Pch3/f///AAByHf9///8/D3IdAAD/vwAAch3/fwAAPw9yHQAA/z8AAHIdAAD/Pz8Pch3/fwAAAAByHf///78/D/8/////PwAA/z////8/Pw//P////78AAP8//3///wAAAAAAAP+/AAAAAAAA/z8AAAAA/38AAAAAAAD///+/AAAAAP///z8AAAAAjsff8I7H3/COx9/wjsff8P////////////////////+qqlRVqqpUVaqqVFWqqlRVVNVU1VTVVNVU1VTVVNVU1VXTqmlV06ppVdOqaVXTqmkej49HHo+PRx6Pj0cej49HqumorKrpqKyq6aisqumorP8//3//P/9//z//f/8//3///////////////////////////////////////////////////////////////////////////////////////////////////////////7Ndl0SzXZdEs12XRLNdl0SXxEsil8RLIpfESyKXxEsiUuOpMVLjqTFS46kxUuOpMVVOU2NVTlNjVU5TY1VOU2P/fwAA/38AAP9/AAD/fwAAJVEl0SVRJdElUSXRJVEl0SVRJdElUSXR")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_txhn4")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ue6bu"]
-resource_name = "material"
-cull_mode = 2
-albedo_color = Color(0.69317174, 0.21635182, 0.17118302, 1)
-roughness = 0.96966314
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_4p58i"]
-_surfaces = [{
-"aabb": AABB(-0.8660253, -1, 0.084655166, 1.7320508, 2, 2.3381696),
-"format": 34896613377,
-"index_count": 48,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEAAgABAAUAAwAGAAUABAACAAcACAAEAAcAAgAFAAkABgAJAAUABwACAAkABgAKAAkACAAHAAsACgAIAAsACQALAAcACgALAAkA"),
-"name": "material",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 12,
-"vertex_data": PackedByteArray("/3///wAAAAD///+///8AAP9//////wAA////vwAAAAAAAP+/AAAAAP///z///wAA////PwAAAAAAAP+///8AAAAA/z8AAAAA/38AAP//AAD/fwAAAAAAAAAA/z///wAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_d0lup"]
-resource_name = "gun_Cylinder_Red_0"
-_surfaces = [{
-"aabb": AABB(-0.8660253, -1, 0.084655166, 1.7320508, 2, 2.3381696),
-"attribute_data": PackedByteArray("hgBYY1kXhgCGAIYAWRdYY1kXWGMARYYAWReGAABFWGMARVhj01uGAABFhgDTW1hj4FxYY7RzhgDgXIYAtHNYY7RzWGNaoYYAtHOGAFqhWGNaoVhjLbiGAFqhhgAtuFhjZ7DKoWewcM/v10PmeP9wz+/X9op4/8qh"),
-"format": 34896613399,
-"index_count": 48,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGgAbABgAGwAcABgAGwAdABwA"),
-"material": SubResource("StandardMaterial3D_ue6bu"),
-"name": "material",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 30,
-"vertex_data": PackedByteArray("/3///wAARD3///+///9EPf9//////0Q9////vwAARD3///+/AACqKv///z///6oq////v///qir///8/AACqKv///z8AAP8O/38AAP///w7///8/////Dv9/AAAAAP8O/38AAAAA/w4AAP8/////Dv9/AAD///8OAAD/PwAA/w4AAP8/AACqKgAA/7///6oqAAD/P///qioAAP+/AACqKgAA/78AAEQ9/3//////RD0AAP+///9EPf9///8AAEQ9/38AAP//VVUAAP8///9VVQAA/7///1VV/3//////VVX///8///9VVf///7///1VVVdOqaVXTqmlV06ppVdOqaaqqVFWqqlRVqqpUVaqqVFUej49HHo+PRx6Pj0cej49Hjsff8I7H3/COx9/wjsff8FTVVNVU1VTVVNVU1VTVVNWq6aisqumorKrpqKyq6ais////////////////////////////////")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_4p58i")
-
 [node name="gun" type="Node3D"]
 
 [node name="Gun" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, 0.99999994, 0, -0.99999994, -3.5762787e-07, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 0, 0)
 
 [node name="Main" type="MeshInstance3D" parent="Gun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40055883, -0.416195)
+layers = 17
 mesh = SubResource("ArrayMesh_5x05k")
 skeleton = NodePath("")
 
 [node name="Pump" type="MeshInstance3D" parent="Gun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40055883, -0.416195)
+layers = 17
 mesh = SubResource("ArrayMesh_1vad5")
 skeleton = NodePath("")
 
 [node name="Stock" type="MeshInstance3D" parent="Gun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40055883, -0.416195)
+layers = 17
 mesh = SubResource("ArrayMesh_j8f63")
-skeleton = NodePath("")
-
-[node name="Casing" type="Node3D" parent="."]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-
-[node name="Cylinder" type="Node3D" parent="Casing"]
-transform = Transform3D(5.53957, 0, 0, 0, -5.5395737, -7.8492576e-07, 0, 4.842849e-07, -8.978504, 0.0041098553, 0.00060498714, -7.302636)
-
-[node name="Cylinder_Gold_0" type="MeshInstance3D" parent="Casing/Cylinder"]
-mesh = SubResource("ArrayMesh_wiru3")
-skeleton = NodePath("")
-
-[node name="Cylinder_Red_0" type="MeshInstance3D" parent="Casing/Cylinder"]
-mesh = SubResource("ArrayMesh_d0lup")
 skeleton = NodePath("")
