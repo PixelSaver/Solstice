@@ -3,6 +3,9 @@ extends Camera3D
 @export var raycast : RayCast3D
 @export var gun_marker : Marker3D
 @export var gun : MeshInstance3D
+var curr_dist : float = 100.
+var target_dist : float = -1.
+const MIN_TARGET_DIST : float = 1.5
 var og_marker : Vector3
 const SPARKS = preload("uid://b7lor67ljfeg8")
 
@@ -32,11 +35,22 @@ func _on_hit():
 	inst.look_at(inst.global_position + normal, Vector3.UP)
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	gun_marker.position = og_marker + Vector3(
 		0, 
 		0, 
 		-(75-player.camera.fov) * 0.015
 	)
+	
 	if raycast.is_colliding():
-		gun_marker.look_at(raycast.get_collision_point(), Vector3.UP, false)
+		target_dist = raycast.get_collision_point().distance_to(raycast.global_position)
+	
+	if not target_dist < 0:
+		curr_dist = lerp(curr_dist, target_dist, delta * 10) 
+		curr_dist = max(curr_dist, MIN_TARGET_DIST)
+		print("curr dist: %s" % curr_dist)
+	
+	gun_marker.look_at(
+		raycast.global_position - raycast.global_basis.z * curr_dist,
+		Vector3.UP, false
+	)
