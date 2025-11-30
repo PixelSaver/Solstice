@@ -22,7 +22,6 @@ shape = SubResource("CapsuleShape3D_3rsb5")
 [node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("raycast", "gun_marker", "gun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 current = true
-fov = 40.0
 script = ExtResource("2_c072m")
 raycast = NodePath("RayCast3D")
 gun_marker = NodePath("Marker3D")

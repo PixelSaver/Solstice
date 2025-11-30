@@ -3,12 +3,14 @@ extends Camera3D
 @export var raycast : RayCast3D
 @export var gun_marker : Marker3D
 @export var gun : MeshInstance3D
+var og_marker : Vector3
 const SPARKS = preload("uid://b7lor67ljfeg8")
 
 var player : Player
 
 func _ready() -> void:
 	player = get_parent() as Player
+	og_marker = gun_marker.position
 	if not player: queue_free()
 
 func _input(_event: InputEvent) -> void:
@@ -31,5 +33,10 @@ func _on_hit():
 
 
 func _process(_delta: float) -> void:
+	gun_marker.position = og_marker + Vector3(
+		0, 
+		0, 
+		-(75-player.camera.fov) * 0.015
+	)
 	if raycast.is_colliding():
 		gun_marker.look_at(raycast.get_collision_point(), Vector3.UP, false)
