@@ -12,6 +12,8 @@ var is_aiming := false
 
 var can_shoot := true
 
+@export var muzzle_flash : CPUParticles3D
+@export var anim_player : AnimationPlayer
 const SPARKS = preload("uid://b7lor67ljfeg8")
 
 var player : Player
@@ -23,13 +25,20 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("l_click"): 
+		anim_player.play("shoot")
 		if raycast.is_colliding(): 
 			_on_hit()
 	if Input.is_action_just_pressed("r_click"): 
 		is_aiming = true
 	elif Input.is_action_just_released("r_click"):
 		is_aiming = false
-		
+
+func flash_muzzle():
+	var inst = muzzle_flash.duplicate()
+	add_child(inst)
+	inst.visible = true
+	inst.emitting = true
+
 func _on_hit():
 	if not raycast.is_colliding(): return
 	player._damage(raycast.get_collider())
