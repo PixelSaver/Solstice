@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scriptsnscenes/global.gd"
+_CameraShake3D="*res://addons/CameraShake3D/CameraShake3D/CameraShake3DNode.gd"
 
 [display]
 
@@ -27,7 +28,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res://addons/proton_scatter/plugin.cfg")
+enabled=PackedStringArray("res://addons/CameraShake3D/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg", "res://addons/proton_scatter/plugin.cfg")
 
 [global_group]
 

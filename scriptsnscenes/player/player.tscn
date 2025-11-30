@@ -126,7 +126,6 @@ mesh = SubResource("BoxMesh_rd6mq")
 
 [node name="MuzzleFlash" type="CPUParticles3D" parent="Camera/GunMarker/gun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4727952)
-visible = false
 emitting = false
 amount = 10
 lifetime = 0.17
