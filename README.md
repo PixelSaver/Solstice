@@ -25,9 +25,11 @@ Siege W13. Unlucky number, but the theme being Winter is amazing. Still, brainst
 ### What even is this?
 You're in a cabin, staring out into the winter day. Pick up a few calls, and watch the sun set. It's the winter solstice, and there's a long night ahead. Stay awake, stay alert, and make it past... the Solstice.
 * First person controller
-* Cabin, gun, and forest models
+* Cabin, gun, forest, and monster models
 * Nighttime environment
 * Enemies to shoot
+* Monster is animated
+* Sparks on wherever you hit
 * Death once enemies get to your window
 
 ### What do I take out of this?
@@ -117,7 +119,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Pixel Saver - [itch.io](https://pixelsaver.itch.io/) 
 
-Project Link: [https://github.com/PixelSaver/Solstice](https://githubthub.com/PixelSaver/Solstice)
+Project Link: [https://github.com/PixelSaver/Solstice](https://github.com/PixelSaver/Solstice)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
