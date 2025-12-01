@@ -15,20 +15,23 @@ var can_shoot := true
 @export var muzzle_flash : CPUParticles3D
 @export var anim_player : AnimationPlayer
 const SPARKS = preload("uid://b7lor67ljfeg8")
+var camera_shake : CameraShake3D
 
 var player : Player
 
 func _ready() -> void:
 	player = get_parent().get_parent() as Player
 	og_marker = gun_marker.position
+	camera_shake = CameraShake3D.new(self)
 	if not player: 
 		push_error("Camera couldn't find parent player")
-		queue_free()
+		return
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("l_click"): 
 		if not anim_player.is_playing(): 
 			anim_player.play("shoot")
+			camera_shake._start_shake(2, 0.2)
 			if raycast.is_colliding(): 
 				_on_hit()
 	if Input.is_action_just_pressed("r_click"): 
@@ -57,6 +60,9 @@ func _on_hit():
 
 
 func _process(delta: float) -> void:
+	camera_shake._update(delta)
+	
+	
 	if is_aiming:
 		gun_marker.position.x *= .9
 	else:
