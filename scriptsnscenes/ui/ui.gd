@@ -2,10 +2,13 @@ extends Control
 class_name UI
 
 @export var time_label : RichTextLabel
+@export var death_screen : Control
 var start_time : float 
 var counting := false
 
 func _ready() -> void:
+	Global.death.connect(_on_death)
+	death_screen.hide()
 	start()
 
 func start():
@@ -18,3 +21,7 @@ func _get_time_survived() -> float:
 func _process(_delta: float) -> void:
 	if not counting: return
 	time_label.text = "Time survived: %s" % _get_time_survived()
+
+func _on_death():
+	get_tree().paused = true
+	death_screen.show()

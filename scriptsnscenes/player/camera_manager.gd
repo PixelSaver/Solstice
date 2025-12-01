@@ -11,6 +11,7 @@ var cam_areas : Array
 @export var rot_margin : float = 1.
 
 func _ready() -> void:
+	await get_tree().process_frame
 	player_cam = get_viewport().get_camera_3d()
 	cam_areas = get_tree().get_nodes_in_group("camera_area") 
 	if cam_areas.size() == 0: 
@@ -29,7 +30,6 @@ func _on_area_entered_custom(body:Node3D, _area:Area3D):
 	if body is not Player: return
 	if _area is not AreaBodyEnter: return
 	var area = _area as AreaBodyEnter
-	print("Body entered: %s" % body.name)
 	match area.name.to_lower():
 		"left":
 			target_cam = area.target_cam
@@ -37,7 +37,6 @@ func _on_area_entered_custom(body:Node3D, _area:Area3D):
 			target_cam = area.target_cam
 
 func _on_body_exited(_body:Node3D):
-	print("Body exited: %s" % _body.name)
 	target_cam = null
 
 func _process(delta: float) -> void:

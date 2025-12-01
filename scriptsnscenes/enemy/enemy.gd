@@ -29,6 +29,15 @@ func move_to_next_point():
 func _update_pos():
 	if move_idx < points.size():
 		self.global_position = points[move_idx].global_position
+	elif move_idx >= points.size():
+		var t = create_tween().set_ease(Tween.EASE_IN)
+		t.tween_property(self, "global_position", Global.player.global_position, 3)
+		await get_tree().create_timer(3).timeout
+		Global.death.emit()
+
+func _process(_delta: float) -> void:
+	if not Global.player: return
+	self.look_at(Global.player.global_position)
 
 func _on_death():
 	queue_free()

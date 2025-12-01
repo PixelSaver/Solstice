@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://obq4st7yapyq"]
+[gd_scene load_steps=7 format=3 uid="uid://obq4st7yapyq"]
 
 [ext_resource type="Script" uid="uid://b7rhpgadbayxv" path="res://scriptsnscenes/enemy/enemy.gd" id="1_ufe3e"]
 [ext_resource type="Script" uid="uid://ytdy4c4eacl0" path="res://scriptsnscenes/components/health_component.gd" id="2_jbp2j"]
@@ -6,6 +6,17 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_jbp2j"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_i43sd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbp2j"]
+albedo_color = Color(0.41905183, 0, 0.01346424, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 1.69
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_i43sd"]
+material = SubResource("StandardMaterial3D_jbp2j")
+radius = 0.05
+height = 0.2
 
 [node name="Enemy" type="RigidBody3D"]
 script = ExtResource("1_ufe3e")
@@ -15,7 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559022e-10, 0.5, -3.05590
 shape = SubResource("BoxShape3D_jbp2j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559022e-10, 0.5, -3.0559022e-10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0031229255, 0.50000006, 0.00012826889)
 mesh = SubResource("BoxMesh_i43sd")
 
 [node name="HealthComponent" type="Node" parent="." groups=["health_component"]]
@@ -23,3 +34,16 @@ script = ExtResource("2_jbp2j")
 health = 2.999999999999991
 max_health = 2.999999999999991
 metadata/_custom_type_script = "uid://ytdy4c4eacl0"
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.24687707, 0.76228005, -0.49987173)
+mesh = SubResource("CapsuleMesh_i43sd")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.25, 0.76228, -0.5)
+mesh = SubResource("CapsuleMesh_i43sd")
+skeleton = NodePath("../..")

@@ -7,7 +7,7 @@ extends CharacterBody3D
 
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 1 # m
 @export_range(0.1, 3.0, 0.1, "or_greater") var camera_sens: float = 3.
-@onready var camera: Camera3D = $Camera
+@onready var camera: Node3D = $Camera
 @export_group("Shooting")
 @export var damage : float = 1.0
 
@@ -24,6 +24,7 @@ var grav_vel: Vector3
 var jump_vel: Vector3
 
 func _ready() -> void:
+	Global.player = self
 	capture_mouse()
 
 func _unhandled_input(event: InputEvent) -> void:
