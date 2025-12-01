@@ -20,13 +20,18 @@
 ## About The Project
 
 ### Overall
-Siege W13. Unlucky number, but the theme being Winter is amazing. Still, brainstorming was hard.
+Siege W13. Unlucky number, but the theme being Winter is amazing. Still, brainstorming was hard. I wasn't able to get 10 hours fully, unfortunately, but Im still proud of what I was able to do. The enemy and the death screen are rushed, but alas. Survive the night!!
 
 ### What even is this?
 You're in a cabin, staring out into the winter day. Pick up a few calls, and watch the sun set. It's the winter solstice, and there's a long night ahead. Stay awake, stay alert, and make it past... the Solstice.
+* First person controller
+* Cabin, gun, and forest models
+* Nighttime environment
+* Enemies to shoot
+* Death once enemies get to your window
 
 ### What do I take out of this?
-
+Don't procrastinate... I had hours which I wasted, and now Ive an unfinished game. Dang.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -35,15 +40,15 @@ You're in a cabin, staring out into the winter day. Pick up a few calls, and wat
 They’re fairly large, so I’ve tucked them into expandable sections:
 
 <details>
-  <summary><strong>Nothing</strong></summary>
-  <img src="media/nothing.png" alt="nothing">
+  <summary><strong>Screenshot of an enemy staring riht at you</strong></summary>
+  <img src="media/img1.png" alt="nothing">
 </details>
 
 #### Notes
 - 
 
 > [!TIP]  
-> Press `B` or `C` to see your blue and gold coin counts in the OS and Menu screens.  
+> Press `B` to release the mouse!
  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p> 
@@ -85,15 +90,15 @@ If you're stuck, I have left a list of hints below to help you out :)
   - [ ] Add two windows to manage them
 - [ ] Pick up calls
   - [ ] Dialogue and options for calls
-- [ ] Winter environment
+- [X] Winter environment
   - [ ] Day / Sunset / Night atmosphere
-  - [ ] Trees and fog and snowstorm
-- [ ] Gun 
+  - [X] Trees and fog and snowstorm
+- [X] Gun 
   - [ ] Shoot anim sounds crosshair
-  - [ ] Low poly model
+  - [X] Low poly model
   - [ ] Add a low battery flashlight to illuminate but have it run out of battery
-- [ ] Enemies show up and creep closer
-  - [ ] Model or just a pair of eyes if no time 
+- [X] Enemies show up and creep closer
+  - [X] Model or just a pair of eyes if no time 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -112,7 +117,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Pixel Saver - [itch.io](https://pixelsaver.itch.io/) 
 
-Project Link: [https://github.com/PixelSaver/Just-U-and-I](https://github.com/PixelSaver/Just-U-and-I)
+Project Link: [https://github.com/PixelSaver/Solstice](https://githubthub.com/PixelSaver/Solstice)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
