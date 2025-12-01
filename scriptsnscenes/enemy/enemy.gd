@@ -5,6 +5,7 @@ var health_component : HealthComponent
 var movement_points : EnemyMovementPoints
 var move_idx : int = 0
 var points : Array[Marker3D]
+var current_target_position : Vector3
 
 func _ready() -> void:
 	health_component = get_tree().get_first_node_in_group("health_component") 
