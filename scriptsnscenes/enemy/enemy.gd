@@ -31,7 +31,7 @@ func _update_pos():
 		self.global_position = points[move_idx].global_position
 	elif move_idx >= points.size():
 		var t = create_tween().set_ease(Tween.EASE_IN)
-		t.tween_property(self, "global_position", Global.player.global_position, 3)
+		t.tween_property(self, "global_position", Global.player.global_position, 4)
 		await get_tree().create_timer(3).timeout
 		Global.death.emit()
 

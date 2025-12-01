@@ -34,6 +34,16 @@ colors = PackedColorArray(1, 1, 1, 1, 0.98591155, 0.643866, 0, 1, 1, 1, 0.423529
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rd6mq"]
 
+[sub_resource type="Animation" id="Animation_akkpy"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera/GunMarker/gun")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
 [sub_resource type="Animation" id="Animation_mkbce"]
 resource_name = "shoot"
 length = 0.6
@@ -66,16 +76,6 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.033333335, 1, 0.087155744, 0, 0, 0.9961947, 0.53333336, 1, 0, 0, 0, 1, 0.6, 1, 0, 0, 0, 1)
 
-[sub_resource type="Animation" id="Animation_akkpy"]
-length = 0.001
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera/GunMarker/gun")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fsi80"]
 _data = {
 &"RESET": SubResource("Animation_akkpy"),
@@ -85,7 +85,6 @@ _data = {
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 4
 script = ExtResource("1_2f8j2")
-camera_sens = 5.0
 
 [node name="CShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -99,7 +98,7 @@ raycast = NodePath("RayCast3D")
 gun_marker = NodePath("GunMarker")
 gun = NodePath("GunMarker/MeshInstance3D")
 MIN_TARGET_DIST = 4.999999999999985
-fov_z_offset = -0.007349999999999978
+fov_z_offset = -0.00734999999999997
 muzzle_flash = NodePath("GunMarker/gun/MuzzleFlash")
 anim_player = NodePath("../AnimationPlayer")
 

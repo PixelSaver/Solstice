@@ -32,6 +32,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		look_dir = event.relative * 0.001
 		if mouse_captured: _rotate_camera()
 	if Input.is_action_just_pressed("jump"): jumping = true
+	if Input.is_action_just_pressed("bruh"): release_mouse()
 	if Input.is_action_just_pressed("exit"): get_tree().quit()
 
 func _physics_process(delta: float) -> void:
