@@ -2,6 +2,7 @@ extends Node3D
 class_name CameraManager
 
 var player_cam : Camera3D
+var head : Node3D
 var og_pos : Vector3
 var og_fov : float
 var target_cam : Camera3D = null
@@ -13,11 +14,12 @@ var cam_areas : Array
 func _ready() -> void:
 	await get_tree().process_frame
 	player_cam = get_viewport().get_camera_3d()
+	head = player_cam.get_parent()
 	cam_areas = get_tree().get_nodes_in_group("camera_area") 
 	if cam_areas.size() == 0: 
 		print("Bruh no camera areas found in camera_manager")
 		return
-	og_pos = player_cam.position
+	og_pos = head.position
 	og_fov = player_cam.fov
 	for area in cam_areas:
 		if area is not AreaBodyEnter: 
@@ -41,14 +43,14 @@ func _on_body_exited(_body:Node3D):
 
 func _process(delta: float) -> void:
 	if target_cam: 
-		player_cam.top_level = true
-		player_cam.global_position = lerp(player_cam.global_position, target_cam.global_position, delta * speed_mult)
+		head.top_level = true
+		head.global_position = lerp(head.global_position, target_cam.global_position, delta * speed_mult)
 		player_cam.fov = lerp(player_cam.fov, target_cam.fov, delta * speed_mult)
-		player_cam.global_rotation.y = clampf(
-			player_cam.global_rotation.y, 
+		head.global_rotation.y = clampf(
+			head.global_rotation.y, 
 			target_cam.global_rotation.y - rot_margin, target_cam.global_rotation.y + rot_margin
 			)
 	else: 
-		player_cam.top_level = false
-		player_cam.position = lerp(player_cam.position, og_pos, delta * speed_mult)
+		head.top_level = false
+		head.position = lerp(head.position, og_pos, delta * speed_mult)
 		player_cam.fov = lerp(player_cam.fov, og_fov, delta * exit_speed_mult)

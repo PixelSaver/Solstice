@@ -6,8 +6,9 @@ extends CharacterBody3D
 @export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
 
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 1 # m
-@export_range(0.1, 3.0, 0.1, "or_greater") var camera_sens: float = 3.
-@onready var camera: Node3D = $Camera
+@export_range(0.1, 3.0, 0.1, "or_greater") var head_sens: float = 3.
+@onready var head: Node3D = $Head
+@onready var camera: Camera3D = $Head/Camera
 @export_group("Shooting")
 @export var damage : float = 1.0
 
@@ -26,11 +27,13 @@ var jump_vel: Vector3
 func _ready() -> void:
 	Global.player = self
 	capture_mouse()
+	await get_tree().process_frame
+	camera.make_current()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		look_dir = event.relative * 0.001
-		if mouse_captured: _rotate_camera()
+		if mouse_captured: _rotate_head()
 	if Input.is_action_just_pressed("jump"): jumping = true
 	if Input.is_action_just_pressed("bruh"): release_mouse()
 	if Input.is_action_just_pressed("exit"): get_tree().quit()
@@ -47,13 +50,13 @@ func release_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
 
-func _rotate_camera(sens_mod: float = 1.0) -> void:
-	camera.rotation.y -= look_dir.x * camera_sens * sens_mod
-	camera.rotation.x = clamp(camera.rotation.x - look_dir.y * camera_sens * sens_mod, -1.5, 1.5)
+func _rotate_head(sens_mod: float = 1.0) -> void:
+	head.rotation.y -= look_dir.x * head_sens * sens_mod
+	head.rotation.x = clamp(head.rotation.x - look_dir.y * head_sens * sens_mod, -1.5, 1.5)
 
 func _walk(delta: float) -> Vector3:
 	move_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var _forward: Vector3 = camera.global_transform.basis * Vector3(move_dir.x, 0, move_dir.y)
+	var _forward: Vector3 = head.global_transform.basis * Vector3(move_dir.x, 0, move_dir.y)
 	var walk_dir: Vector3 = Vector3(_forward.x, 0, _forward.z).normalized()
 	walk_vel = walk_vel.move_toward(walk_dir * speed * move_dir.length(), acceleration * delta)
 	return walk_vel

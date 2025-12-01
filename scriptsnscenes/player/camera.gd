@@ -19,15 +19,18 @@ const SPARKS = preload("uid://b7lor67ljfeg8")
 var player : Player
 
 func _ready() -> void:
-	player = get_parent() as Player
+	player = get_parent().get_parent() as Player
 	og_marker = gun_marker.position
-	if not player: queue_free()
+	if not player: 
+		push_error("Camera couldn't find parent player")
+		queue_free()
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("l_click"): 
-		anim_player.play("shoot")
-		if raycast.is_colliding(): 
-			_on_hit()
+		if not anim_player.is_playing(): 
+			anim_player.play("shoot")
+			if raycast.is_colliding(): 
+				_on_hit()
 	if Input.is_action_just_pressed("r_click"): 
 		is_aiming = true
 	elif Input.is_action_just_released("r_click"):
