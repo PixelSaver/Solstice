@@ -8,8 +8,9 @@
 radius = 1.2651367
 height = 3.586914
 
-[node name="Enemy" type="RigidBody3D"]
+[node name="Enemy" type="StaticBody3D" node_paths=PackedStringArray("anim_player")]
 script = ExtResource("1_ufe3e")
+anim_player = NodePath("Low Crawl/AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.0559022e-10, 0.5, -3.0559022e-10)
@@ -23,3 +24,5 @@ metadata/_custom_type_script = "uid://ytdy4c4eacl0"
 
 [node name="Low Crawl" parent="." instance=ExtResource("3_i43sd")]
 transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 0, 0, 0)
+
+[editable path="Low Crawl"]
