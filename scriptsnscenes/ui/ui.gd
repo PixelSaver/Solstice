@@ -5,6 +5,7 @@ class_name UI
 @export var hud : Control
 @export var death_screen : Control
 @export var pause_screen : PauseMenu
+@export var settings_screen : Control
 @export var start_screen : MainMenu
 var start_time : float 
 var counting := false
@@ -12,6 +13,7 @@ var counting := false
 func _ready() -> void:
 	Global.death.connect(_on_death)
 	death_screen.hide()
+	Global.ui = self
 	start_game()
 
 func start_game():

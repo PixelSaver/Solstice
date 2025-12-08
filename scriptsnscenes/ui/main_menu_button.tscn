@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://sg4c1w43fm7i"]
+
+[ext_resource type="Script" uid="uid://c17h3wvri6mvm" path="res://scriptsnscenes/ui/main_button.gd" id="1_sf50n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sf50n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7h2os"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45w4w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7thg5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3g5b8"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(0, 100)
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sf50n")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7h2os")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_45w4w")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7thg5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3g5b8")
+script = ExtResource("1_sf50n")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 1209.0
+offset_bottom = 95.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font_size=60]Play[/font_size]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn61cksa5mac4"]
+
+[ext_resource type="Script" uid="uid://c3d2mj4cncfui" path="res://scriptsnscenes/ui/main_menu.gd" id="1_xfslv"]
+[ext_resource type="PackedScene" uid="uid://sg4c1w43fm7i" path="res://scriptsnscenes/ui/main_menu_button.tscn" id="2_g76rc"]
+
+[node name="MainMenu" type="Control" groups=["main_menu"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_xfslv")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.40233153, 0.40233156, 0.40233153, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.7
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[shake][font_size=100][color=aqua]Solstice[/color][/font_size][/shake]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" parent="VBoxContainer" instance=ExtResource("2_g76rc")]
+layout_mode = 2
+
+[node name="Settings" parent="VBoxContainer" instance=ExtResource("2_g76rc")]
+layout_mode = 2
+
+[node name="RichTextLabel2" parent="VBoxContainer/Settings" index="0"]
+text = "[font_size=60]Settings[/font_size]"
+
+[node name="Quit" parent="VBoxContainer" instance=ExtResource("2_g76rc")]
+layout_mode = 2
+
+[node name="RichTextLabel2" parent="VBoxContainer/Quit" index="0"]
+text = "[font_size=60]Exit[/font_size]"
+
+[connection signal="menu_button_pressed" from="." to="." method="_on_menu_button_pressed"]
+
+[editable path="VBoxContainer/Play"]
+[editable path="VBoxContainer/Settings"]
+[editable path="VBoxContainer/Quit"]
