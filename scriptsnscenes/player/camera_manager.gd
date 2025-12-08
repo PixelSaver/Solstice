@@ -1,7 +1,7 @@
 extends Node3D
 class_name CameraManager
 
-var player_cam : Camera3D
+var player_cam : PlayerCamera
 var head : Node3D
 var og_pos : Vector3
 var og_fov : float
@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 	if target_cam: 
 		head.top_level = true
 		head.global_position = lerp(head.global_position, target_cam.global_position, delta * speed_mult)
-		player_cam.fov = lerp(player_cam.fov, target_cam.fov, delta * speed_mult)
+		player_cam.target_fov = lerp(player_cam.target_fov, target_cam.fov, delta * speed_mult)
 		head.global_rotation.y = clampf(
 			head.global_rotation.y, 
 			target_cam.global_rotation.y - rot_margin, target_cam.global_rotation.y + rot_margin
@@ -53,4 +53,4 @@ func _process(delta: float) -> void:
 	else: 
 		head.top_level = false
 		head.position = lerp(head.position, og_pos, delta * speed_mult)
-		player_cam.fov = lerp(player_cam.fov, og_fov, delta * exit_speed_mult)
+		player_cam.target_fov = lerp(player_cam.target_fov, og_fov, delta * exit_speed_mult)

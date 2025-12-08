@@ -7,6 +7,7 @@ extends CharacterBody3D
 
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 1 # m
 @export_range(0.1, 3.0, 0.1, "or_greater") var head_sens: float = 3.
+var sense_mult : float = 1.
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera
 @export_group("Shooting")

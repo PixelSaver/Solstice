@@ -1,4 +1,5 @@
 extends Camera3D
+class_name PlayerCamera
 
 @export var raycast : RayCast3D
 @export var gun_marker : Marker3D
@@ -7,6 +8,7 @@ var curr_dist : float = 100.
 var target_dist : float = -1.
 @export var MIN_TARGET_DIST : float = 1.5
 @export var fov_z_offset : float = 0.013
+@onready var target_fov : float = self.fov
 var og_marker : Vector3
 var is_aiming := false
 
@@ -42,11 +44,6 @@ func _input(_event: InputEvent) -> void:
 func flash_muzzle():
 	muzzle_flash.emitting = true
 	muzzle_flash.visible = true
-	#var inst = muzzle_flash.duplicate()
-	#add_child(inst)
-	#inst.global_position = muzzle_flash.global_position
-	#inst.visible = true
-	#inst.emitting = true
 
 func _on_hit():
 	if not raycast.is_colliding(): return
@@ -65,8 +62,12 @@ func _process(delta: float) -> void:
 	
 	if is_aiming:
 		gun_marker.position.x *= .9
+		self.fov = lerpf(fov, target_fov - 15, delta * 5.)
+		player.sense_mult = 0.05
 	else:
 		gun_marker.position = lerp(gun_marker.position, og_marker, delta*3)
+		self.fov = lerpf(fov, target_fov, delta * 5.)
+		player.sense_mult = 1.
 	gun_marker.position.z = og_marker.z + lerpf(0, fov_z_offset, 75-player.camera.fov)
 	
 	if raycast.is_colliding():

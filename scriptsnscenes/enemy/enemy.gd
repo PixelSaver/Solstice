@@ -4,7 +4,7 @@ class_name Enemy
 signal reached_point(idx:int)
 @export var move_speed : float = 2.
 @export var anim_player : AnimationPlayer
-var health_component : HealthComponent
+@onready var health_component: HealthComponent = $HealthComponent
 var movement_points : EnemyMovementPoints
 var move_idx : int = 0
 var points : Array[Marker3D]
@@ -12,7 +12,6 @@ var current_target_position : Vector3
 var is_moving := false
 
 func _ready() -> void:
-	health_component = get_tree().get_first_node_in_group("health_component") 
 	health_component.died.connect(_on_death)
 	reached_point.connect(_on_point_reached)
 
