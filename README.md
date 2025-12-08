@@ -22,6 +22,8 @@
 ### Overall
 Siege W13. Unlucky number, but the theme being Winter is amazing. Still, brainstorming was hard. I wasn't able to get 10 hours fully, unfortunately, but Im still proud of what I was able to do. The enemy and the death screen are rushed, but alas. Survive the night!!
 
+Siege W15 Back again because my friend said this was almost peak!! Going to add to the readme what I want to get done
+
 ### What even is this?
 You're in a cabin, staring out into the winter day. Pick up a few calls, and watch the sun set. It's the winter solstice, and there's a long night ahead. Stay awake, stay alert, and make it past... the Solstice.
 * First person controller
@@ -94,11 +96,18 @@ If you're stuck, I have left a list of hints below to help you out :)
   - [ ] Dialogue and options for calls
 - [X] Winter environment
   - [ ] Day / Sunset / Night atmosphere
-  - [X] Trees and fog and snowstorm
+  - [X] Trees 
+  - [X] Fog
+  - [ ] Snowstorm
 - [X] Gun 
   - [ ] Shoot anim sounds crosshair
   - [X] Low poly model
   - [ ] Add a low battery flashlight to illuminate but have it run out of battery
+- [ ] Sounds for things
+  - [ ] Gun Sounds
+  - [ ] Window sounds
+  - [ ] Monster sounds
+  - [ ] Winter sounds
 - [X] Enemies show up and creep closer
   - [X] Model or just a pair of eyes if no time 
 

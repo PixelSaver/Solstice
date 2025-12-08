@@ -1,0 +1,104 @@
+[gd_scene load_steps=24 format=3 uid="uid://dw1is1t3xew8n"]
+
+[ext_resource type="Script" uid="uid://bmyv7l36uix6f" path="res://addons/proton_scatter/src/scatter.gd" id="1_mb817"]
+[ext_resource type="Script" uid="uid://been5ju7qgm3x" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="2_qk1r2"]
+[ext_resource type="Script" uid="uid://dfcogoipy5ass" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="3_b8fv5"]
+[ext_resource type="Script" uid="uid://ddqi1podbomn0" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="4_6snc1"]
+[ext_resource type="Script" uid="uid://cs2g43evkb4ow" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="5_hq0ld"]
+[ext_resource type="Script" uid="uid://nbwvjr8ms1t2" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="6_smshg"]
+[ext_resource type="Script" uid="uid://du4p1q27mg4ly" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="7_w718k"]
+[ext_resource type="Script" uid="uid://btqo3ndm1ghuc" path="res://addons/proton_scatter/src/modifiers/offset_rotation.gd" id="8_au5pi"]
+[ext_resource type="Script" uid="uid://bktbiimi8dah1" path="res://addons/proton_scatter/src/modifiers/offset_scale.gd" id="9_omew8"]
+[ext_resource type="Script" uid="uid://bqduaydmt02is" path="res://addons/proton_scatter/src/modifiers/offset_position.gd" id="10_r3aq7"]
+[ext_resource type="Script" uid="uid://ddvbs30gxipjx" path="res://addons/proton_scatter/src/scatter_item.gd" id="11_tyf3r"]
+[ext_resource type="Script" uid="uid://wb7ioruklg25" path="res://addons/proton_scatter/src/scatter_shape.gd" id="12_rfx2u"]
+[ext_resource type="Script" uid="uid://csujxnfh3ddc6" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="13_nkml7"]
+
+[sub_resource type="Resource" id="Resource_lrb8i"]
+script = ExtResource("4_6snc1")
+amount = 90
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_otsce"]
+script = ExtResource("5_hq0ld")
+scale = Vector3(1.5, 1.5, 1.5)
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_4voba"]
+script = ExtResource("6_smshg")
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+enabled = false
+restrict_height = true
+
+[sub_resource type="Resource" id="Resource_3sfe7"]
+script = ExtResource("7_w718k")
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+collision_mask = 0
+enabled = false
+
+[sub_resource type="Resource" id="Resource_brwl5"]
+script = ExtResource("8_au5pi")
+rotation = Vector3(-90, 0, 0)
+enabled = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_avuot"]
+script = ExtResource("9_omew8")
+scale = Vector3(4, 4, 4)
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_w0jbt"]
+script = ExtResource("10_r3aq7")
+position = Vector3(-11, 0, 11)
+enabled = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_rm52u"]
+script = ExtResource("2_qk1r2")
+stack = Array[ExtResource("3_b8fv5")]([SubResource("Resource_lrb8i"), SubResource("Resource_otsce"), SubResource("Resource_4voba"), SubResource("Resource_3sfe7"), SubResource("Resource_brwl5"), SubResource("Resource_avuot"), SubResource("Resource_w0jbt")])
+
+[sub_resource type="Resource" id="Resource_k3hfk"]
+script = ExtResource("13_nkml7")
+radius = 29.99999999999991
+metadata/_custom_type_script = "uid://csujxnfh3ddc6"
+
+[sub_resource type="Resource" id="Resource_s0oan"]
+script = ExtResource("13_nkml7")
+radius = 11.999999999999964
+metadata/_custom_type_script = "uid://csujxnfh3ddc6"
+
+[node name="ProtonScatter" type="Node3D"]
+visible = false
+script = ExtResource("1_mb817")
+enabled = false
+global_seed = 22
+render_mode = 1
+keep_static_colliders = true
+modifier_stack = SubResource("Resource_rm52u")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+metadata/_custom_type_script = "uid://bmyv7l36uix6f"
+
+[node name="ScatterItem" type="Node3D" parent="."]
+transform = Transform3D(0.96835, 0, 0, 0, 0.96835, 0, 0, 0, 0.96835, 0, 0, 0)
+script = ExtResource("11_tyf3r")
+source_scale_multiplier = 0.06999999999999978
+source_ignore_position = false
+source_ignore_rotation = false
+source_ignore_scale = false
+path = "uid://bfs4314h0i2hx"
+
+[node name="ScatterShape" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -3.0559022e-10, 0, -3.0559022e-10)
+script = ExtResource("12_rfx2u")
+shape = SubResource("Resource_k3hfk")
+
+[node name="ScatterShape2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -3.0559022e-10, 0, -3.0559022e-10)
+script = ExtResource("12_rfx2u")
+negative = true
+shape = SubResource("Resource_s0oan")
