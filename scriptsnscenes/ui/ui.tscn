@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgu01q81rwdv6"]
+[gd_scene load_steps=5 format=3 uid="uid://cgu01q81rwdv6"]
 
 [ext_resource type="Script" uid="uid://ctg2wfn45paa3" path="res://scriptsnscenes/ui/ui.gd" id="1_nfa55"]
 [ext_resource type="PackedScene" uid="uid://cn61cksa5mac4" path="res://scriptsnscenes/ui/main_menu.tscn" id="2_4tcmo"]
 [ext_resource type="PackedScene" uid="uid://b45po4ymsfrxi" path="res://scriptsnscenes/ui/pause_menu.tscn" id="3_3p38e"]
+[ext_resource type="PackedScene" uid="uid://5xul7ocxuri5" path="res://scriptsnscenes/ui/settings_menu.tscn" id="4_3p38e"]
 
 [node name="UI" type="Control" node_paths=PackedStringArray("time_label", "hud", "death_screen", "pause_screen", "start_screen")]
 process_mode = 3
@@ -109,3 +110,6 @@ layout_mode = 1
 [node name="PauseMenu" parent="." instance=ExtResource("3_3p38e")]
 visible = false
 layout_mode = 1
+
+[node name="SettingsMenu" parent="." instance=ExtResource("4_3p38e")]
+layout_mode = 0
