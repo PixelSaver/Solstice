@@ -2,16 +2,19 @@ extends Control
 class_name UI
 
 @export var time_label : RichTextLabel
+@export var hud : Control
 @export var death_screen : Control
+@export var pause_screen : PauseMenu
+@export var start_screen : MainMenu
 var start_time : float 
 var counting := false
 
 func _ready() -> void:
 	Global.death.connect(_on_death)
 	death_screen.hide()
-	start()
+	start_game()
 
-func start():
+func start_game():
 	start_time = Time.get_unix_time_from_system()
 	counting = true
 

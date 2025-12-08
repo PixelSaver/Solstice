@@ -103,6 +103,7 @@ If you're stuck, I have left a list of hints below to help you out :)
   - [ ] Shoot anim sounds crosshair
   - [X] Low poly model
   - [ ] Add a low battery flashlight to illuminate but have it run out of battery
+  - [ ] Reloading
 - [ ] Sounds for things
   - [ ] Gun Sounds
   - [ ] Window sounds
