@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/CameraShake3D/plugin.cfg", "res://addons
 
 camera_area=""
 main_menu=""
+pause_menu=""
 
 [input]
 

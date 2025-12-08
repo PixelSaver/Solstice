@@ -27,17 +27,29 @@ var jump_vel: Vector3
 
 func _ready() -> void:
 	Global.player = self
-	capture_mouse()
-	await get_tree().process_frame
-	camera.make_current()
+	Global.state_changed.connect(_on_state_changed)
+func _on_state_changed():
+	if Global.game_state == Global.State.SURVIVE: 
+		capture_mouse()
+		camera.make_current()
+	else:
+		release_mouse()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Global.game_state != Global.State.SURVIVE: return
 	if event is InputEventMouseMotion:
 		look_dir = event.relative * 0.001
 		if mouse_captured: _rotate_head()
 	if Input.is_action_just_pressed("jump"): jumping = true
 	if Input.is_action_just_pressed("bruh"): release_mouse()
 	if Input.is_action_just_pressed("exit"): get_tree().quit()
+	if Input.is_action_just_pressed("pause"):
+		if Global.game_state != Global.State.SURVIVE: return
+		Global.game_paused = !Global.game_paused
+		if Global.game_paused:
+			release_mouse()
+		else:
+			capture_mouse()
 
 func _physics_process(delta: float) -> void:
 	velocity = _walk(delta) + _gravity(delta) + _jump(delta)
@@ -48,6 +60,7 @@ func capture_mouse() -> void:
 	mouse_captured = true
 
 func release_mouse() -> void:
+	if mouse_captured == false: return
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
 

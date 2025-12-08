@@ -6,7 +6,14 @@ var enemy_list : Array[Enemy] = []
 
 func _ready() -> void:
 	Global.enemy_man = self
-	enemy_spawn_loop()
+	Global.state_changed.connect(_on_state_changed)
+
+func _on_state_changed():
+	match Global.game_state:
+		Global.State.SURVIVE:
+			enemy_spawn_loop()
+		_:
+			pass
 
 func enemy_spawn_loop():
 	print("spawned")

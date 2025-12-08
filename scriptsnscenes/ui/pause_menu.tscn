@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b45po4ymsfrxi"]
+[gd_scene load_steps=3 format=3 uid="uid://b45po4ymsfrxi"]
 
 [ext_resource type="Script" uid="uid://cg7v0gew6gsai" path="res://scriptsnscenes/ui/pause_menu.gd" id="1_e8t1a"]
+[ext_resource type="Script" uid="uid://bwnhlwxwt6lj8" path="res://scriptsnscenes/ui/pause_menu_button.gd" id="2_o315i"]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" groups=["pause_menu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,3 +11,101 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e8t1a")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel2/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=100][color=aqua]PAUSED"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="Button" parent="Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+script = ExtResource("2_o315i")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel2/VBoxContainer/Resume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font_size=60]Resume[/font_size]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="Button" parent="Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+script = ExtResource("2_o315i")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel2/VBoxContainer/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font_size=60]Settings[/font_size]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Button" parent="Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+script = ExtResource("2_o315i")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel2/VBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font_size=60]Quit[/font_size]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="menu_button_pressed" from="." to="." method="_on_menu_button_pressed"]

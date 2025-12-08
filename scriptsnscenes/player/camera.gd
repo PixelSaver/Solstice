@@ -30,6 +30,7 @@ func _ready() -> void:
 		return
 
 func _input(_event: InputEvent) -> void:
+	if Global.game_state != Global.State.SURVIVE: return
 	if Input.is_action_just_pressed("l_click"): 
 		if not anim_player.is_playing(): 
 			anim_player.play("shoot")
@@ -57,6 +58,7 @@ func _on_hit():
 
 
 func _process(delta: float) -> void:
+	if Global.game_state != Global.State.SURVIVE: return
 	camera_shake._update(delta)
 	
 	

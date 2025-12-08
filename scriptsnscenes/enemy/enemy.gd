@@ -56,10 +56,10 @@ func _on_point_reached(idx:int):
 				, CONNECT_ONE_SHOT
 			)
 	else:
-		Global.death.emit()
+		Global.game_state = Global.State.DEAD
 
 func _process(delta: float) -> void:
-	if not Global.player: return
+	if not Global.player or Global.game_state != Global.State.SURVIVE: return
 	is_moving = false if current_target_position.is_equal_approx(self.global_position) else true
 	if is_moving and anim_player.current_animation == "walk":
 		self.look_at(current_target_position)

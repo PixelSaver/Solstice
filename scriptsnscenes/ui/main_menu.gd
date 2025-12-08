@@ -4,6 +4,9 @@ class_name MainMenu
 signal menu_button_pressed(button_name:String)
 signal anim_out_finished
 
+func _ready() -> void:
+	self.show()
+
 func anim_in():
 	show()
 
@@ -17,8 +20,8 @@ func _on_menu_button_pressed(button_name: String) -> void:
 	match button_name:
 		"play":
 			print("Play")
-			Global.menu_to_play_game.emit()
-			Global.ui.start_game()
+			Global.game_state = Global.State.SURVIVE
+			self.hide()
 		"settings":
 			print("settings")
 			Global.ui.settings_screen.show()

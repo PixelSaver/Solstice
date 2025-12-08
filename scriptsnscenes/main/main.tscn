@@ -42,6 +42,7 @@ size = Vector3(0.54589844, 1, 1)
 size = Vector3(0.54589844, 1, 1)
 
 [node name="Main" type="Node3D"]
+process_mode = 1
 
 [node name="EnemyMovementPoints" type="Node3D" parent="."]
 script = ExtResource("1_kxkkf")
