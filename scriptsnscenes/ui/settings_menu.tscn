@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://5xul7ocxuri5"]
+[gd_scene load_steps=3 format=3 uid="uid://5xul7ocxuri5"]
+
+[ext_resource type="PackedScene" uid="uid://bffltn0v5w74" path="res://scriptsnscenes/options/master_options_menu_with_tabs.tscn" id="1_jhpdd"]
+[ext_resource type="Script" uid="uid://d2bdmwabiqtax" path="res://scriptsnscenes/ui/settings_menu.gd" id="1_wnr4k"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -7,19 +10,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wnr4k")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="MasterOptionsMenu" parent="." instance=ExtResource("1_jhpdd")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = -399.16797
+offset_bottom = -224.53198

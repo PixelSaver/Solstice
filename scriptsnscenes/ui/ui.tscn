@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b45po4ymsfrxi" path="res://scriptsnscenes/ui/pause_menu.tscn" id="3_3p38e"]
 [ext_resource type="PackedScene" uid="uid://5xul7ocxuri5" path="res://scriptsnscenes/ui/settings_menu.tscn" id="4_3p38e"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("time_label", "hud", "death_screen", "pause_screen", "start_screen")]
+[node name="UI" type="Control" node_paths=PackedStringArray("time_label", "hud", "death_screen", "pause_screen", "settings_screen", "start_screen")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -19,6 +19,7 @@ time_label = NodePath("HUD/TimeLabel")
 hud = NodePath("HUD")
 death_screen = NodePath("Death")
 pause_screen = NodePath("PauseMenu")
+settings_screen = NodePath("SettingsMenu")
 start_screen = NodePath("MainMenu")
 
 [node name="HUD" type="Control" parent="."]
@@ -112,4 +113,5 @@ visible = false
 layout_mode = 1
 
 [node name="SettingsMenu" parent="." instance=ExtResource("4_3p38e")]
-layout_mode = 0
+visible = false
+layout_mode = 1

@@ -10,15 +10,19 @@ signal death
 enum State {
 	MENU,
 	SETTINGS,
+	PAUSE,
 	DIALOGUE,
 	SURVIVE,
 	WIN,
 	DEAD,
 }
 signal state_changed
+var prev_game_state : State
 var game_state : State = State.MENU : 
 	set(val):
 		if game_state != val:
+			if game_state != State.SETTINGS and game_state != State.PAUSE:
+				prev_game_state = game_state
 			game_state = val
 			state_changed.emit()
 			print("New Game State: %s" % game_state)

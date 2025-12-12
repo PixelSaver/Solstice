@@ -24,7 +24,7 @@ func _on_menu_button_pressed(button_name: String) -> void:
 			self.hide()
 		"settings":
 			print("settings")
-			Global.ui.settings_screen.show()
+			Global.game_state = Global.State.SETTINGS
 		"quit":
 			print("quit")
 			get_tree().reload_current_scene()

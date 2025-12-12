@@ -16,6 +16,9 @@ func _on_state_changed():
 			pass
 
 func enemy_spawn_loop():
+	if Global.game_state != Global.State.SURVIVE or Global.game_paused: 
+		await get_tree().create_timer(1).timeout
+		enemy_spawn_loop()
 	print("spawned")
 	inst_enemy()
 	await get_tree().create_timer(randfn(3, 1)).timeout

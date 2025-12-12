@@ -5,7 +5,7 @@ class_name UI
 @export var hud : Control
 @export var death_screen : Control
 @export var pause_screen : PauseMenu
-@export var settings_screen : Control
+@export var settings_screen : SettingsMenu
 @export var start_screen : MainMenu
 var start_time : float 
 var counting := false
@@ -47,5 +47,3 @@ func _get_time_survived() -> float:
 func _process(_delta: float) -> void:
 	if not counting: return
 	time_label.text = "Time survived: %s" % _get_time_survived()
-	if Input.is_action_just_pressed("pause"):
-		Global.game_paused = true

@@ -1,33 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://bffltn0v5w74"]
+[gd_scene load_steps=5 format=3 uid="uid://bffltn0v5w74"]
 
 [ext_resource type="PackedScene" uid="uid://hmx6o472ropw" path="res://addons/maaacks_options_menus/base/scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="1_8hq24"]
-[ext_resource type="PackedScene" uid="uid://be8jytir4js6m" path="res://scriptsnscenes/options/input/input_options_menu.tscn" id="2_4r8ky"]
-[ext_resource type="PackedScene" uid="uid://ductdirknvdsh" path="res://scriptsnscenes/options/input/input_extras_menu.tscn" id="3_6ujkk"]
+[ext_resource type="PackedScene" uid="uid://d0sp6trk6cp87" path="res://scriptsnscenes/options/input/input_options_menu_with_mouse_sensitivity.tscn" id="2_12e22"]
 [ext_resource type="PackedScene" uid="uid://crvfydddbtxxu" path="res://scriptsnscenes/options/audio/audio_options_menu.tscn" id="4_m1brr"]
 [ext_resource type="PackedScene" uid="uid://b4ei0trn8y06u" path="res://scriptsnscenes/options/video/video_options_menu_with_extras.tscn" id="5_rw5jy"]
 
 [node name="MasterOptionsMenu" instance=ExtResource("1_8hq24")]
 anchors_preset = -1
-anchor_right = 0.667
-anchor_bottom = 0.667
-scale = Vector2(1.5, 1.5)
+anchor_right = 0.769
+anchor_bottom = 0.769
+scale = Vector2(1.3, 1.3)
 current_tab = 0
 
-[node name="Controls" parent="." index="1" instance=ExtResource("2_4r8ky")]
+[node name="Controls" parent="." index="1" instance=ExtResource("2_12e22")]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Inputs" parent="." index="2" instance=ExtResource("3_6ujkk")]
+[node name="Audio" parent="." index="2" instance=ExtResource("4_m1brr")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Audio" parent="." index="3" instance=ExtResource("4_m1brr")]
+[node name="Video" parent="." index="3" instance=ExtResource("5_rw5jy")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
-
-[node name="Video" parent="." index="4" instance=ExtResource("5_rw5jy")]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 3

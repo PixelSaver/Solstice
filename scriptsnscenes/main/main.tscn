@@ -69,6 +69,11 @@ sky_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("2_ofk34")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+speed = null
+acceleration = null
+jump_height = null
+head_sens = null
+damage = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

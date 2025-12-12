@@ -41,10 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		look_dir = event.relative * 0.001
 		if mouse_captured: _rotate_head()
 	if Input.is_action_just_pressed("jump"): jumping = true
-	if Input.is_action_just_pressed("bruh"): release_mouse()
-	if Input.is_action_just_pressed("exit"): get_tree().quit()
-	if Input.is_action_just_pressed("pause"):
-		if Global.game_state != Global.State.SURVIVE: return
+	if Input.is_action_just_pressed("exit"): 
 		Global.game_paused = !Global.game_paused
 		if Global.game_paused:
 			release_mouse()
